@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Screenshots of all six themes, light and dark, on a desktop and a phone, rendered from a
+  demo dashboard by `script/screenshots.py`.
+
 ## 1.1.0 (2026-11-25)
 
 - Five gemstone variants next to Opal: Opal Emerald, Opal Amethyst, Opal Aquamarine, Opal

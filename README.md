@@ -10,9 +10,11 @@ itself there are five gemstone variants.
 
 | Light | Dark |
 |:---:|:---:|
-| <img src="docs/opal-light.png" alt="Opal in light mode" width="300"> | <img src="docs/opal-dark.png" alt="Opal in dark mode" width="300"> |
+| <img src="docs/screenshots/opal-desktop-light.webp" alt="Opal in light mode on a desktop" width="420"> | <img src="docs/screenshots/opal-desktop-dark.webp" alt="Opal in dark mode on a desktop" width="420"> |
+| <img src="docs/screenshots/opal-mobile-light.webp" alt="Opal in light mode on a phone" width="200"> | <img src="docs/screenshots/opal-mobile-dark.webp" alt="Opal in dark mode on a phone" width="200"> |
 
-<sub>Illustrative previews of a phone dashboard in Opal (with card-mod); your own cards will differ.</sub>
+<sub>Rendered previews of a demo dashboard in the theme's colours, as with card-mod
+(`script/screenshots.py`); not captures of Home Assistant, and your own cards will differ.</sub>
 
 ## Features
 
@@ -43,6 +45,17 @@ tinted to it and three light spots in its tones.
 | **Opal Onyx** | graphite `#334155` / `#CBD5E1` | greys only |
 
 Pick one in your profile like any other theme.
+
+### Gallery
+
+| Theme | Desktop light | Desktop dark | Phone light | Phone dark |
+|---|:---:|:---:|:---:|:---:|
+| **Opal** | <a href="docs/screenshots/opal-desktop-light.webp"><img src="docs/screenshots/opal-desktop-light.webp" alt="Opal in light mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-desktop-dark.webp"><img src="docs/screenshots/opal-desktop-dark.webp" alt="Opal in dark mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-mobile-light.webp"><img src="docs/screenshots/opal-mobile-light.webp" alt="Opal in light mode on a phone" width="90"></a> | <a href="docs/screenshots/opal-mobile-dark.webp"><img src="docs/screenshots/opal-mobile-dark.webp" alt="Opal in dark mode on a phone" width="90"></a> |
+| **Opal Emerald** | <a href="docs/screenshots/opal-emerald-desktop-light.webp"><img src="docs/screenshots/opal-emerald-desktop-light.webp" alt="Opal Emerald in light mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-emerald-desktop-dark.webp"><img src="docs/screenshots/opal-emerald-desktop-dark.webp" alt="Opal Emerald in dark mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-emerald-mobile-light.webp"><img src="docs/screenshots/opal-emerald-mobile-light.webp" alt="Opal Emerald in light mode on a phone" width="90"></a> | <a href="docs/screenshots/opal-emerald-mobile-dark.webp"><img src="docs/screenshots/opal-emerald-mobile-dark.webp" alt="Opal Emerald in dark mode on a phone" width="90"></a> |
+| **Opal Amethyst** | <a href="docs/screenshots/opal-amethyst-desktop-light.webp"><img src="docs/screenshots/opal-amethyst-desktop-light.webp" alt="Opal Amethyst in light mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-amethyst-desktop-dark.webp"><img src="docs/screenshots/opal-amethyst-desktop-dark.webp" alt="Opal Amethyst in dark mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-amethyst-mobile-light.webp"><img src="docs/screenshots/opal-amethyst-mobile-light.webp" alt="Opal Amethyst in light mode on a phone" width="90"></a> | <a href="docs/screenshots/opal-amethyst-mobile-dark.webp"><img src="docs/screenshots/opal-amethyst-mobile-dark.webp" alt="Opal Amethyst in dark mode on a phone" width="90"></a> |
+| **Opal Aquamarine** | <a href="docs/screenshots/opal-aquamarine-desktop-light.webp"><img src="docs/screenshots/opal-aquamarine-desktop-light.webp" alt="Opal Aquamarine in light mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-aquamarine-desktop-dark.webp"><img src="docs/screenshots/opal-aquamarine-desktop-dark.webp" alt="Opal Aquamarine in dark mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-aquamarine-mobile-light.webp"><img src="docs/screenshots/opal-aquamarine-mobile-light.webp" alt="Opal Aquamarine in light mode on a phone" width="90"></a> | <a href="docs/screenshots/opal-aquamarine-mobile-dark.webp"><img src="docs/screenshots/opal-aquamarine-mobile-dark.webp" alt="Opal Aquamarine in dark mode on a phone" width="90"></a> |
+| **Opal Tourmaline** | <a href="docs/screenshots/opal-tourmaline-desktop-light.webp"><img src="docs/screenshots/opal-tourmaline-desktop-light.webp" alt="Opal Tourmaline in light mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-tourmaline-desktop-dark.webp"><img src="docs/screenshots/opal-tourmaline-desktop-dark.webp" alt="Opal Tourmaline in dark mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-tourmaline-mobile-light.webp"><img src="docs/screenshots/opal-tourmaline-mobile-light.webp" alt="Opal Tourmaline in light mode on a phone" width="90"></a> | <a href="docs/screenshots/opal-tourmaline-mobile-dark.webp"><img src="docs/screenshots/opal-tourmaline-mobile-dark.webp" alt="Opal Tourmaline in dark mode on a phone" width="90"></a> |
+| **Opal Onyx** | <a href="docs/screenshots/opal-onyx-desktop-light.webp"><img src="docs/screenshots/opal-onyx-desktop-light.webp" alt="Opal Onyx in light mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-onyx-desktop-dark.webp"><img src="docs/screenshots/opal-onyx-desktop-dark.webp" alt="Opal Onyx in dark mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-onyx-mobile-light.webp"><img src="docs/screenshots/opal-onyx-mobile-light.webp" alt="Opal Onyx in light mode on a phone" width="90"></a> | <a href="docs/screenshots/opal-onyx-mobile-dark.webp"><img src="docs/screenshots/opal-onyx-mobile-dark.webp" alt="Opal Onyx in dark mode on a phone" width="90"></a> |
 
 ## Requirements
 
@@ -117,6 +130,8 @@ frontend:
 `themes/opal.yaml` is generated: the shared part is `src/theme.template.yaml`, each theme's
 colours are in `src/variants.yaml`. For your own copy you can edit `themes/opal.yaml` directly;
 for a change to this repository edit `src/` and run `script/build.py` (needs PyYAML).
+`script/screenshots.py` renders the README's screenshots from `docs/demo/dashboard.html` in
+every theme (needs Playwright with Chromium and Pillow).
 
 - **Accent colour**: change `primary-color`, `accent-color` and their `rgb-*` values in the
   mode you want (light and dark have their own, the light one is darker for contrast), and
