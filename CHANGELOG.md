@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.1.1 (2026-11-25)
 
 - Screenshots of all six themes, light and dark, on a desktop and a phone, rendered from a
   demo dashboard by `script/screenshots.py`; its floor lamp shines violet to show that a
