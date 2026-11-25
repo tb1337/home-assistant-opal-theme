@@ -8,7 +8,8 @@
   A static stand-in for a Home Assistant dashboard, used only to render the README's
   screenshots (script/screenshots.py). It holds no theme colours: the script sets the
   CSS variables below from src/variants.yaml for each theme and mode, and the body
-  class picks the layout (mobile or desktop).
+  class picks the layout (mobile or desktop). The floor lamp shines violet as a colour
+  light does: its tile's glow takes the light's colour (Home Assistant's --tile-color).
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
@@ -144,7 +145,7 @@
           <h2><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6M2 18h20M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg>Living room</h2>
           <div class="grid">
             <div class="card active wide"><div class="tile-top"><span class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2zM9 20h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/></svg></span><div><div class="name">All lights</div><div class="state">60 %</div></div></div><div class="bar"><i style="width:60%"></i></div></div>
-            <div class="card active"><div class="tile-top"><span class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 2h8l2 8H6zM11 10h2v10h3v2H8v-2h3z"/></svg></span><div><div class="name">Floor lamp</div><div class="state">35 %</div></div></div><div class="bar"><i style="width:35%"></i></div></div>
+            <div class="card active" style="--active: #A855F7"><div class="tile-top"><span class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 2h8l2 8H6zM11 10h2v10h3v2H8v-2h3z"/></svg></span><div><div class="name">Floor lamp</div><div class="state">35 % · violet</div></div></div><div class="bar"><i style="width:35%"></i></div></div>
             <div class="card"><div class="tile-top"><span class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h14l-3 7H8zM11 11h2v9h-2z"/></svg></span><div><div class="name">Ceiling spots</div><div class="state">Off</div></div></div><div class="bar"></div></div>
             <div class="card"><div class="tile-top"><span class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8"/></svg></span><div><div class="name">TV</div><div class="state">Off</div></div></div></div>
             <div class="card"><div class="tile-top"><span class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg></span><div><div class="name">Climate</div><div class="state">Heating</div></div></div><div class="temp">21.5 °C</div></div>

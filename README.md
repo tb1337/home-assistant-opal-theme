@@ -76,7 +76,7 @@ parts of Home Assistant that theme variables cannot reach. We recommend installi
 | Readable form fields and menus | ✓ | ✓ |
 | Dashboard header | nearly opaque | frosted glass |
 | Light sheen on cards | – | ✓ |
-| Active tiles (light on, device running) glow in their state colour | – | ✓ |
+| Active tiles (light on, device running) glow in their state colour, a colour light in its own colour | – | ✓ |
 | Sidebar blurs what is behind it (when it opens over the dashboard on a phone) | – | ✓ |
 
 Without card-mod nothing breaks: the effects in the last four rows are simply left out.

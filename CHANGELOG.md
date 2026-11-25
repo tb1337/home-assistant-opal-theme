@@ -3,7 +3,8 @@
 ## Unreleased
 
 - Screenshots of all six themes, light and dark, on a desktop and a phone, rendered from a
-  demo dashboard by `script/screenshots.py`.
+  demo dashboard by `script/screenshots.py`; its floor lamp shines violet to show that a
+  colour light's tile glows in the light's colour.
 
 ## 1.1.0 (2026-11-25)
 
