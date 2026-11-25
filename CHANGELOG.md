@@ -1,12 +1,17 @@
 # Changelog
 
+## 1.0.1 (2026-11-25)
+
+- Changelog: 1.0.0 now reads as the first release it is. No change to the theme.
+
 ## 1.0.0 (2026-11-25)
 
-- The coloured light is now behind every page, not only dashboards.
-- Translucent sidebar: the coloured light shines through it. With card-mod it also blurs what
-  is behind it, which shows when it opens over the dashboard on a phone.
-- README: a table of what works with and without card-mod.
+First release.
+
+- Frosted-glass cards, dialogs and bottom sheets, in a light and a dark mode.
+- Soft coloured light (periwinkle, teal, pink) behind every page; the translucent sidebar
+  lets it shine through.
+- Readable form fields and opaque drop-down menus.
+- With card-mod (optional): a glass header, a light sheen on cards, glowing active tiles and
+  a blurred sidebar. The README lists what works with and without it.
 - Listed in the Marketplace as "Opal Theme - Dark mode and light mode".
-- First version of Opal: frosted-glass cards over soft coloured light, light and dark mode,
-  glass dialogs and readable form fields; with card-mod a glass header, a light sheen on
-  cards and glowing active tiles.
