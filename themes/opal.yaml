@@ -43,11 +43,16 @@ Opal:
       divider-color: "rgba(15, 23, 42, 0.10)"
 
       # Dashboard background: three soft light spots on a pale ground
-      lovelace-background: >-
+      lovelace-background: &light-background >-
         radial-gradient(circle at 8% 0%, rgba(124, 156, 255, 0.45) 0%, rgba(124, 156, 255, 0) 45%) fixed,
         radial-gradient(circle at 96% 42%, rgba(45, 212, 191, 0.30) 0%, rgba(45, 212, 191, 0) 40%) fixed,
         radial-gradient(circle at 42% 108%, rgba(244, 114, 182, 0.26) 0%, rgba(244, 114, 182, 0) 42%) fixed,
         #EEF1FA
+
+      # The same light behind every other page and behind the sidebar (a dashboard paints
+      # its own background only beside the sidebar); toolbars that would take it stay plain.
+      ha-panel-background: *light-background
+      ha-panel-toolbar-background: "#EEF1FA"
 
       # Cards: white frosted glass. card-background-color is also the surface of
       # drop-down menus, so it stays opaque; cards use ha-card-background.
@@ -60,7 +65,8 @@ Opal:
       app-header-background-color: "rgba(238, 241, 250, 0.96)"
       app-header-text-color: "#0F172A"
       app-header-selection-bar-color: "#4F6BED"
-      sidebar-background-color: "#F5F7FD"
+      # Translucent: the coloured light behind the page shows through the sidebar
+      sidebar-background-color: "rgba(245, 247, 253, 0.5)"
       sidebar-text-color: "#334155"
       sidebar-icon-color: "#475569"
       sidebar-selected-text-color: "#0F172A"
@@ -110,6 +116,12 @@ Opal:
 
       # card-mod
       card-mod-theme: Opal
+      card-mod-sidebar: |
+        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+        :host {
+          backdrop-filter: blur(24px) saturate(170%);
+          -webkit-backdrop-filter: blur(24px) saturate(170%);
+        }
       card-mod-root: |
         .header {
           --app-header-background-color: transparent;
@@ -165,11 +177,16 @@ Opal:
       divider-color: "rgba(255, 255, 255, 0.12)"
 
       # Dashboard background: three blurred light spots on night blue
-      lovelace-background: >-
+      lovelace-background: &dark-background >-
         radial-gradient(circle at 8% 0%, rgba(124, 156, 255, 0.50) 0%, rgba(124, 156, 255, 0) 45%) fixed,
         radial-gradient(circle at 96% 42%, rgba(45, 212, 191, 0.34) 0%, rgba(45, 212, 191, 0) 40%) fixed,
         radial-gradient(circle at 42% 108%, rgba(244, 114, 182, 0.28) 0%, rgba(244, 114, 182, 0) 42%) fixed,
         #070B1A
+
+      # The same light behind every other page and behind the sidebar (a dashboard paints
+      # its own background only beside the sidebar); toolbars that would take it stay plain.
+      ha-panel-background: *dark-background
+      ha-panel-toolbar-background: "#070B1A"
 
       # Cards: frosted glass. card-background-color is also the surface of drop-down
       # menus, so it stays opaque; cards use ha-card-background.
@@ -182,7 +199,8 @@ Opal:
       app-header-background-color: "rgba(9, 13, 30, 0.96)"
       app-header-text-color: "rgba(255, 255, 255, 0.92)"
       app-header-selection-bar-color: "#7C9CFF"
-      sidebar-background-color: "#0B1022"
+      # Translucent: the coloured light behind the page shows through the sidebar
+      sidebar-background-color: "rgba(11, 16, 34, 0.5)"
       sidebar-text-color: "rgba(255, 255, 255, 0.78)"
       sidebar-icon-color: "rgba(255, 255, 255, 0.70)"
       sidebar-selected-text-color: "#FFFFFF"
@@ -234,6 +252,12 @@ Opal:
 
       # card-mod
       card-mod-theme: Opal
+      card-mod-sidebar: |
+        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+        :host {
+          backdrop-filter: blur(24px) saturate(170%);
+          -webkit-backdrop-filter: blur(24px) saturate(170%);
+        }
       card-mod-root: |
         .header {
           --app-header-background-color: transparent;

@@ -18,22 +18,38 @@ glass with colours shimmering through. One theme, a light and a dark mode.
 - **Frosted-glass cards**: translucent cards with backdrop blur and extra saturation, a fine
   border and a soft shadow.
 - **Soft coloured light**: three blurred light spots (periwinkle, teal, pink) behind every
-  dashboard; they stay in place while you scroll.
+  page, dashboards and settings alike; they stay in place while you scroll.
 - **Light and dark mode**: pale blue-grey with white glass, or night blue with dark glass. Pick
   one or let Home Assistant follow your device.
-- **Readable forms and menus**: glass form fields and selects, opaque drop-down menus, glass
-  dialogs that blur what is behind them.
-- **With [card-mod](https://github.com/thomasloven/lovelace-card-mod)** (optional):
-  - a frosted-glass dashboard header,
-  - a subtle light sheen on every card,
-  - active tiles (light on, device running) glow in their state colour.
+- **Glass dialogs and sidebar**: dialogs and bottom sheets blur what is behind them; the
+  sidebar is translucent, so the coloured light shines through it.
+- **Readable forms and menus**: glass form fields and selects, opaque drop-down menus.
+- **More glass with [card-mod](https://github.com/thomasloven/lovelace-card-mod)**
+  (optional, recommended): see [With and without card-mod](#with-and-without-card-mod).
 
 ## Requirements
 
 - Home Assistant 2026.11 or newer.
-- Optional, recommended: [card-mod](https://github.com/thomasloven/lovelace-card-mod) for the
-  header, the card sheen and the glowing tiles. Without it, Opal works and those three are
-  simply left out.
+- Optional, recommended: [card-mod](https://github.com/thomasloven/lovelace-card-mod).
+  Opal works without it; a few effects need it.
+
+## With and without card-mod
+
+Opal is a complete theme on its own. card-mod is an optional add-on: it lets a theme style
+parts of Home Assistant that theme variables cannot reach. We recommend installing it.
+
+| | Without card-mod | With card-mod |
+|---|---|---|
+| Glass cards, coloured light, light and dark mode | ✓ | ✓ |
+| Glass dialogs and bottom sheets | ✓ | ✓ |
+| Translucent sidebar | ✓ | ✓ |
+| Readable form fields and menus | ✓ | ✓ |
+| Dashboard header | nearly opaque | frosted glass |
+| Light sheen on cards | – | ✓ |
+| Active tiles (light on, device running) glow in their state colour | – | ✓ |
+| Sidebar blurs what is behind it (when it opens over the dashboard on a phone) | – | ✓ |
+
+Without card-mod nothing breaks: the effects in the last four rows are simply left out.
 
 ## Installation
 
@@ -64,11 +80,12 @@ Later changes to the file only need **Developer tools → Actions → `frontend.
 
 Open your **profile**, choose **Opal** under *Theme*, then **Auto**, **Light** or **Dark**.
 
-## card-mod
+## Installing card-mod
 
 Install card-mod from the Marketplace. It works as a dashboard resource; for themes it applies
 most reliably when it is also loaded as an extra module, so it is ready before the first page
-renders:
+renders. The sidebar needs this outside dashboards (settings, history and other pages): as a
+dashboard resource alone, card-mod styles it only once a dashboard has been opened.
 
 ```yaml
 frontend:
@@ -85,15 +102,17 @@ frontend:
   (dialogs).
 - **Roundness**: `ha-card-border-radius` (cards), `ha-border-radius-sm` (small elements such as
   fields and chips).
-- **Background**: `lovelace-background` per mode; replace it with an image if you like
+- **Background**: `lovelace-background` per mode (dashboards); `ha-panel-background` reuses it
+  for all other pages and behind the sidebar. Replace it with an image if you like
   (`center / cover no-repeat fixed url('/local/your-image.jpg')`).
 
 ## Known limitations
 
 - **Fonts**: a theme cannot load web fonts. Opal asks for Inter and Space Grotesk and falls back
   to the system font (San Francisco on Apple devices) when they are not installed.
-- **Header blur in the iOS app**: the glass header is blurred in browsers; in the Home Assistant
-  iOS app the blur may not apply, so the header is kept nearly opaque to stay readable.
+- **Blur in the iOS app**: the glass header and the sidebar are blurred in browsers; in the
+  Home Assistant iOS app that blur may not apply, so both are kept opaque enough to stay
+  readable.
 - **Custom cards** follow the theme as far as they use Home Assistant's variables; some draw
   their own colours.
 
