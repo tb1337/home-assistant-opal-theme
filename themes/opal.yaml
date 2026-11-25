@@ -79,6 +79,8 @@ Opal:
       state-light-active-color: "#F59E0B"
       state-on-color: "#0D9488"
       state-off-color: "#94A3B8"
+      # Inactive states (off, clear, away): icons, the logbook's discs, history bars
+      state-inactive-color: "#64748B"
       paper-item-icon-color: "#475569"
       paper-item-icon-active-color: "#D97706"
 
@@ -213,6 +215,8 @@ Opal:
       state-light-active-color: "#FBBF24"
       state-on-color: "#2DD4BF"
       state-off-color: "rgba(255, 255, 255, 0.45)"
+      # Inactive states (off, clear, away): icons, the logbook's discs, history bars
+      state-inactive-color: "#94A3B8"
       paper-item-icon-color: "rgba(255, 255, 255, 0.78)"
       paper-item-icon-active-color: "#FBBF24"
 

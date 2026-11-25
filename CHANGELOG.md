@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Inactive states (off, clear, away) in slate instead of Home Assistant's neutral grey:
+  their icons stand out from the light background, in the logbook too.
+
 ## 1.0.1 (2026-11-25)
 
 - Changelog: 1.0.0 now reads as the first release it is. No change to the theme.
