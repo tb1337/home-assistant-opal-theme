@@ -97,7 +97,9 @@ frontend:
 ## Customising
 
 - **Accent colour**: change `primary-color`, `accent-color` and their `rgb-*` values in the
-  mode you want (light and dark have their own, the light one is darker for contrast).
+  mode you want (light and dark have their own, the light one is darker for contrast), and
+  the shared palette `ha-color-primary-05` to `-95`, which switches, buttons, checkboxes,
+  tabs and progress bars use.
 - **Blur**: `ha-card-backdrop-filter` (cards) and `ha-dialog-surface-backdrop-filter`
   (dialogs).
 - **Roundness**: `ha-card-border-radius` (cards), `ha-border-radius-sm` (small elements such as

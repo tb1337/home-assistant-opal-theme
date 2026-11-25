@@ -6,7 +6,7 @@
 # Select "Opal" in your profile, then Auto, Light or Dark. Anything not set here comes
 # from Home Assistant's own light or dark palette.
 # To change the accent colour, change primary-color, accent-color and their rgb-*
-# values per mode together.
+# values per mode together, and the ha-color-primary-* palette.
 # The card-mod-* keys need card-mod (thomasloven/lovelace-card-mod); without it they are
 # ignored and the theme still works.
 
@@ -21,6 +21,20 @@ Opal:
   ha-border-radius-sm: "10px"
   ha-dialog-border-radius: "28px"
   dialog-backdrop-filter: "blur(6px)"
+  # The palette behind switches, buttons, checkboxes, radios, tabs, progress bars and
+  # pickers (Home Assistant's own is cyan and ignores primary-color). Periwinkle in the
+  # lightness steps of HA's palette; step 40 is the light mode's primary-color.
+  ha-color-primary-05: "#0A112E"
+  ha-color-primary-10: "#192453"
+  ha-color-primary-20: "#253472"
+  ha-color-primary-30: "#3E54B0"
+  ha-color-primary-40: "#4F6BED"
+  ha-color-primary-50: "#7C9CFF"
+  ha-color-primary-60: "#9CB4FE"
+  ha-color-primary-70: "#B2C5FD"
+  ha-color-primary-80: "#D2DDFE"
+  ha-color-primary-90: "#E9EFFF"
+  ha-color-primary-95: "#F4F7FF"
 
   modes:
     # ----------------------------------------------------------------------------------
@@ -32,7 +46,6 @@ Opal:
       rgb-accent-color: "13, 148, 136"
       primary-background-color: "#EEF1FA"
       secondary-background-color: "#E4E8F5"
-      rgb-primary-background-color: "238, 241, 250"
 
       # Text
       primary-text-color: "#0F172A"
@@ -75,18 +88,12 @@ Opal:
 
       # Icons and states
       state-icon-color: "#475569"
-      state-icon-active-color: "#D97706"
       state-light-active-color: "#F59E0B"
-      state-on-color: "#0D9488"
-      state-off-color: "#94A3B8"
       # Inactive states (off, clear, away): icons, the logbook's discs, history bars
       state-inactive-color: "#64748B"
-      paper-item-icon-color: "#475569"
-      paper-item-icon-active-color: "#D97706"
 
       # Menus and dialogs
       mdc-theme-surface: "#FFFFFF"
-      card-background-color-dialog: "#FFFFFF"
       ha-dialog-surface-background: "rgba(255, 255, 255, 0.86)"
       ha-dialog-surface-backdrop-filter: "blur(28px) saturate(170%)"
 
@@ -102,12 +109,7 @@ Opal:
       input-hover-line-color: "rgba(15, 23, 42, 0.55)"
       input-dropdown-icon-color: "#475569"
 
-      # Switches and sliders
-      switch-checked-color: "#4F6BED"
-      switch-checked-button-color: "#4F6BED"
-      switch-checked-track-color: "rgba(79, 107, 237, 0.40)"
-      switch-unchecked-button-color: "#FFFFFF"
-      switch-unchecked-track-color: "rgba(15, 23, 42, 0.20)"
+      # Sliders (switches follow the ha-color-primary-* palette above)
       slider-color: "#4F6BED"
       slider-track-color: "rgba(15, 23, 42, 0.12)"
 
@@ -168,7 +170,6 @@ Opal:
       rgb-accent-color: "45, 212, 191"
       primary-background-color: "#070B1A"
       secondary-background-color: "#0E1428"
-      rgb-primary-background-color: "7, 11, 26"
 
       # Text
       primary-text-color: "rgba(255, 255, 255, 0.92)"
@@ -211,18 +212,12 @@ Opal:
 
       # Icons and states
       state-icon-color: "rgba(255, 255, 255, 0.78)"
-      state-icon-active-color: "#FBBF24"
       state-light-active-color: "#FBBF24"
-      state-on-color: "#2DD4BF"
-      state-off-color: "rgba(255, 255, 255, 0.45)"
       # Inactive states (off, clear, away): icons, the logbook's discs, history bars
       state-inactive-color: "#94A3B8"
-      paper-item-icon-color: "rgba(255, 255, 255, 0.78)"
-      paper-item-icon-active-color: "#FBBF24"
 
       # Menus and dialogs
       mdc-theme-surface: "#121833"
-      card-background-color-dialog: "#121833"
       ha-dialog-surface-background: "rgba(18, 24, 51, 0.82)"
       ha-dialog-surface-backdrop-filter: "blur(28px) saturate(170%)"
 
@@ -238,14 +233,9 @@ Opal:
       input-idle-line-color: "rgba(255, 255, 255, 0.30)"
       input-hover-line-color: "rgba(255, 255, 255, 0.55)"
       input-dropdown-icon-color: "rgba(255, 255, 255, 0.70)"
-      codemirror-background: "#0B1022"
+      code-editor-background-color: "#0B1022"
 
-      # Switches and sliders
-      switch-checked-color: "#7C9CFF"
-      switch-checked-button-color: "#7C9CFF"
-      switch-checked-track-color: "rgba(124, 156, 255, 0.45)"
-      switch-unchecked-button-color: "rgba(255, 255, 255, 0.70)"
-      switch-unchecked-track-color: "rgba(255, 255, 255, 0.20)"
+      # Sliders (switches follow the ha-color-primary-* palette above)
       slider-color: "#7C9CFF"
       slider-track-color: "rgba(255, 255, 255, 0.15)"
 

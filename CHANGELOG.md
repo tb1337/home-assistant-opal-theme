@@ -4,6 +4,11 @@
 
 - Inactive states (off, clear, away) in slate instead of Home Assistant's neutral grey:
   their icons stand out from the light background, in the logbook too.
+- Switches, buttons, checkboxes, radios, tabs, progress bars and pickers in Opal's
+  periwinkle: they used Home Assistant's own cyan palette, which ignores `primary-color`.
+- The code editor gets Opal's dark background again (the variable was renamed in Home
+  Assistant).
+- Removed 13 variables Home Assistant no longer reads; no visual change.
 
 ## 1.0.1 (2026-11-25)
 
