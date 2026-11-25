@@ -1,4 +1,4 @@
-# Opal
+# Opal Theme
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
 [![Validate](https://github.com/tb1337/home-assistant-opal-theme/actions/workflows/validate.yml/badge.svg)](https://github.com/tb1337/home-assistant-opal-theme/actions/workflows/validate.yml)
@@ -58,7 +58,7 @@ Without card-mod nothing breaks: the effects in the last four rows are simply le
 1. In Home Assistant open **Settings → Marketplace** (HACS on older versions).
 2. Add this repository as a custom repository of type **Theme**:
    `https://github.com/tb1337/home-assistant-opal-theme`.
-3. Search for **Opal** and download it.
+3. Search for **Opal Theme** and download it.
 
 ### Manual
 
