@@ -1,0 +1,187 @@
+---
+# The themes of the Opal family: Opal and its gemstone variants. Each one fills the
+# fields of src/theme.template.yaml; script/build.py writes them all into
+# themes/opal.yaml. Only the accent, the grounds and the three light spots differ.
+#
+# How the values are made (keep it when adding a variant):
+# - palette: the accent in the lightness steps of Home Assistant's own primary palette
+#   (OKLCH), step 40 = light.primary; white text on it must reach 4.5:1.
+# - grounds, header, sidebar, surfaces: Opal's own neutrals turned to the accent's hue,
+#   same lightness and chroma (Onyx with a third of the chroma).
+# - spots: three light spots in the stone's tones, as "r, g, b".
+
+- name: Opal
+  slug: opal
+  palette: {"05": "#0A112E", "10": "#192453", "20": "#253472", "30": "#3E54B0", "40": "#4F6BED", "50": "#7C9CFF",
+            "60": "#9CB4FE", "70": "#B2C5FD", "80": "#D2DDFE", "90": "#E9EFFF", "95": "#F4F7FF"}
+  light:
+    primary: "#4F6BED"
+    rgb_primary: "79, 107, 237"
+    ground: "#EEF1FA"
+    secondary: "#E4E8F5"
+    ground_rgb: "238, 241, 250"
+    sidebar_rgb: "245, 247, 253"
+    spot1: "124, 156, 255"
+    spot2: "45, 212, 191"
+    spot3: "244, 114, 182"
+  dark:
+    primary: "#7C9CFF"
+    rgb_primary: "124, 156, 255"
+    ground: "#070B1A"
+    secondary: "#0E1428"
+    header_rgb: "9, 13, 30"
+    sidebar_rgb: "11, 16, 34"
+    card: "#141A36"
+    surface: "#121833"
+    surface_rgb: "18, 24, 51"
+    code: "#0B1022"
+    spot1: "124, 156, 255"
+    spot2: "45, 212, 191"
+    spot3: "244, 114, 182"
+
+- name: Opal Emerald
+  slug: opal-emerald
+  palette: {"05": "#051811", "10": "#0E3024", "20": "#184433", "30": "#296C53", "40": "#047857", "50": "#55C49A",
+            "60": "#64CFA6", "70": "#90D9BA", "80": "#C2E9D7", "90": "#E3F4EC", "95": "#F1FAF5"}
+  light:
+    primary: "#047857"
+    rgb_primary: "4, 120, 87"
+    ground: "#EAF4EF"
+    secondary: "#DEEDE6"
+    ground_rgb: "234, 244, 239"
+    sidebar_rgb: "242, 249, 246"
+    spot1: "52, 211, 153"
+    spot2: "34, 211, 238"
+    spot3: "163, 230, 53"
+  dark:
+    primary: "#34D399"
+    rgb_primary: "52, 211, 153"
+    ground: "#001009"
+    secondary: "#011B11"
+    header_rgb: "0, 19, 11"
+    sidebar_rgb: "0, 22, 14"
+    card: "#012318"
+    surface: "#002116"
+    surface_rgb: "0, 33, 22"
+    code: "#00160E"
+    spot1: "52, 211, 153"
+    spot2: "34, 211, 238"
+    spot3: "163, 230, 53"
+
+- name: Opal Amethyst
+  slug: opal-amethyst
+  palette: {"05": "#160A31", "10": "#2D1A57", "20": "#3F2677", "30": "#653FB8", "40": "#6D28D9", "50": "#AF99FF",
+            "60": "#BAA9FF", "70": "#C8BCFE", "80": "#DFD9FE", "90": "#EFEDFF", "95": "#F7F6FF"}
+  light:
+    primary: "#6D28D9"
+    rgb_primary: "109, 40, 217"
+    ground: "#F1F0F9"
+    secondary: "#E9E6F4"
+    ground_rgb: "241, 240, 249"
+    sidebar_rgb: "247, 246, 252"
+    spot1: "167, 139, 250"
+    spot2: "244, 114, 182"
+    spot3: "124, 156, 255"
+  dark:
+    primary: "#A78BFA"
+    rgb_primary: "167, 139, 250"
+    ground: "#0D0919"
+    secondary: "#161126"
+    header_rgb: "16, 11, 28"
+    sidebar_rgb: "18, 14, 32"
+    card: "#1F1633"
+    surface: "#1C1530"
+    surface_rgb: "28, 21, 48"
+    code: "#120E20"
+    spot1: "167, 139, 250"
+    spot2: "244, 114, 182"
+    spot3: "124, 156, 255"
+
+- name: Opal Aquamarine
+  slug: opal-aquamarine
+  palette: {"05": "#05171D", "10": "#0E2D38", "20": "#17404E", "30": "#28667B", "40": "#0E7490", "50": "#54BBDD",
+            "60": "#63C6E8", "70": "#8FD2EB", "80": "#C1E5F3", "90": "#E3F2F8", "95": "#F1F9FC"}
+  light:
+    primary: "#0E7490"
+    rgb_primary: "14, 116, 144"
+    ground: "#E9F3F8"
+    secondary: "#DCEBF2"
+    ground_rgb: "233, 243, 248"
+    sidebar_rgb: "242, 249, 251"
+    spot1: "103, 232, 249"
+    spot2: "124, 156, 255"
+    spot3: "52, 211, 153"
+  dark:
+    primary: "#67E8F9"
+    rgb_primary: "103, 232, 249"
+    ground: "#000F15"
+    secondary: "#001921"
+    header_rgb: "0, 17, 24"
+    sidebar_rgb: "0, 20, 28"
+    card: "#00202C"
+    surface: "#011E29"
+    surface_rgb: "1, 30, 41"
+    code: "#00141C"
+    spot1: "103, 232, 249"
+    spot2: "124, 156, 255"
+    spot3: "52, 211, 153"
+
+- name: Opal Tourmaline
+  slug: opal-tourmaline
+  palette: {"05": "#280611", "10": "#4A1124", "20": "#651B34", "30": "#9D2D54", "40": "#BE185D", "50": "#FE7BA0",
+            "60": "#FD92AE", "70": "#FEACBF", "80": "#FFD0DA", "90": "#FFE9ED", "95": "#FFF4F6"}
+  light:
+    primary: "#BE185D"
+    rgb_primary: "190, 24, 93"
+    ground: "#F9EEF0"
+    secondary: "#F4E4E6"
+    ground_rgb: "249, 238, 240"
+    sidebar_rgb: "253, 245, 246"
+    spot1: "244, 114, 182"
+    spot2: "253, 186, 116"
+    spot3: "167, 139, 250"
+  dark:
+    primary: "#F472B6"
+    rgb_primary: "244, 114, 182"
+    ground: "#17060A"
+    secondary: "#240D13"
+    header_rgb: "27, 7, 12"
+    sidebar_rgb: "31, 9, 15"
+    card: "#311018"
+    surface: "#2E0E17"
+    surface_rgb: "46, 14, 23"
+    code: "#1F090F"
+    spot1: "244, 114, 182"
+    spot2: "253, 186, 116"
+    spot3: "167, 139, 250"
+
+# Onyx: its accent #334155 is darker than HA's step 40, so steps 05 to 30 are set by
+# hand from the slate scale to stay darker than it (a hovered button still darkens).
+- name: Opal Onyx
+  slug: opal-onyx
+  palette: {"05": "#090D16", "10": "#0F172A", "20": "#172033", "30": "#1E293B", "40": "#334155", "50": "#9BADC9",
+            "60": "#A6B9D4", "70": "#BAC8DC", "80": "#D7DFEA", "90": "#ECEFF4", "95": "#F5F7FA"}
+  light:
+    primary: "#334155"
+    rgb_primary: "51, 65, 85"
+    ground: "#F0F1F4"
+    secondary: "#E6E8EC"
+    ground_rgb: "240, 241, 244"
+    sidebar_rgb: "246, 247, 249"
+    spot1: "148, 163, 184"
+    spot2: "203, 213, 225"
+    spot3: "100, 116, 139"
+  dark:
+    primary: "#CBD5E1"
+    rgb_primary: "203, 213, 225"
+    ground: "#090C10"
+    secondary: "#12161B"
+    header_rgb: "12, 15, 19"
+    sidebar_rgb: "14, 18, 22"
+    card: "#181D24"
+    surface: "#161B22"
+    surface_rgb: "22, 27, 34"
+    code: "#0E1216"
+    spot1: "148, 163, 184"
+    spot2: "203, 213, 225"
+    spot3: "100, 116, 139"

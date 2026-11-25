@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Five gemstone variants next to Opal: Opal Emerald, Opal Amethyst, Opal Aquamarine, Opal
+  Tourmaline and Opal Onyx, each with its own accent, a ground tinted to it and light spots
+  in its tones. Opal itself is unchanged.
+- `themes/opal.yaml` is now built from `src/` by `script/build.py`; the Validate workflow
+  checks that it is up to date.
 - Inactive states (off, clear, away) in slate instead of Home Assistant's neutral grey:
   their icons stand out from the light background, in the logbook too.
 - Switches, buttons, checkboxes, radios, tabs, progress bars and pickers in Opal's

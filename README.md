@@ -5,7 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A Home Assistant theme with frosted-glass cards over soft coloured light, like an opal: milky
-glass with colours shimmering through. One theme, a light and a dark mode.
+glass with colours shimmering through. Each theme has a light and a dark mode, and besides Opal
+itself there are five gemstone variants.
 
 | Light | Dark |
 |:---:|:---:|
@@ -26,6 +27,22 @@ glass with colours shimmering through. One theme, a light and a dark mode.
 - **Readable forms and menus**: glass form fields and selects, opaque drop-down menus.
 - **More glass with [card-mod](https://github.com/thomasloven/lovelace-card-mod)**
   (optional, recommended): see [With and without card-mod](#with-and-without-card-mod).
+
+## Variants
+
+All six share the glass, the layout and the readable greys; each has its own accent, a ground
+tinted to it and three light spots in its tones.
+
+| Theme | Accent light / dark | Light spots |
+|---|---|---|
+| **Opal** | periwinkle `#4F6BED` / `#7C9CFF` | periwinkle, teal, pink |
+| **Opal Emerald** | emerald `#047857` / `#34D399` | emerald, cyan, lime |
+| **Opal Amethyst** | violet `#6D28D9` / `#A78BFA` | violet, pink, periwinkle |
+| **Opal Aquamarine** | sea blue `#0E7490` / `#67E8F9` | aqua, periwinkle, emerald |
+| **Opal Tourmaline** | raspberry `#BE185D` / `#F472B6` | pink, peach, violet |
+| **Opal Onyx** | graphite `#334155` / `#CBD5E1` | greys only |
+
+Pick one in your profile like any other theme.
 
 ## Requirements
 
@@ -78,7 +95,8 @@ Later changes to the file only need **Developer tools → Actions → `frontend.
 
 ### Select it
 
-Open your **profile**, choose **Opal** under *Theme*, then **Auto**, **Light** or **Dark**.
+Open your **profile**, choose **Opal** or one of its variants under *Theme*, then **Auto**,
+**Light** or **Dark**.
 
 ## Installing card-mod
 
@@ -96,6 +114,10 @@ frontend:
 
 ## Customising
 
+`themes/opal.yaml` is generated: the shared part is `src/theme.template.yaml`, each theme's
+colours are in `src/variants.yaml`. For your own copy you can edit `themes/opal.yaml` directly;
+for a change to this repository edit `src/` and run `script/build.py` (needs PyYAML).
+
 - **Accent colour**: change `primary-color`, `accent-color` and their `rgb-*` values in the
   mode you want (light and dark have their own, the light one is darker for contrast), and
   the shared palette `ha-color-primary-05` to `-95`, which switches, buttons, checkboxes,
@@ -104,8 +126,8 @@ frontend:
   (dialogs).
 - **Roundness**: `ha-card-border-radius` (cards), `ha-border-radius-sm` (small elements such as
   fields and chips).
-- **Background**: `lovelace-background` per mode (dashboards); `ha-panel-background` reuses it
-  for all other pages and behind the sidebar. Replace it with an image if you like
+- **Background**: `lovelace-background` per mode (dashboards) and the same value in
+  `ha-panel-background` (all other pages and behind the sidebar). Replace it with an image if you like
   (`center / cover no-repeat fixed url('/local/your-image.jpg')`).
 
 ## Known limitations

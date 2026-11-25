@@ -1,0 +1,289 @@
+---
+# One theme of the Opal family. script/build.py fills the ${...} fields from
+# src/variants.yaml and writes every theme into themes/opal.yaml.
+# Each ${...} field is a plain value; everything else is the same for all variants.
+
+${name}:
+  # Shared by both modes
+  card-mod-theme: ${name}
+  ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+  ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
+  ha-card-border-width: "1px"
+  ha-card-border-radius: "20px"
+  ha-card-backdrop-filter: "blur(24px) saturate(170%)"
+  ha-border-radius-sm: "10px"
+  ha-dialog-border-radius: "28px"
+  dialog-backdrop-filter: "blur(6px)"
+  # The palette behind switches, buttons, checkboxes, radios, tabs, progress bars and
+  # pickers (Home Assistant's own is cyan and ignores primary-color). The accent in the
+  # lightness steps of HA's palette; step 40 is the light mode's primary-color.
+  ha-color-primary-05: "${p05}"
+  ha-color-primary-10: "${p10}"
+  ha-color-primary-20: "${p20}"
+  ha-color-primary-30: "${p30}"
+  ha-color-primary-40: "${p40}"
+  ha-color-primary-50: "${p50}"
+  ha-color-primary-60: "${p60}"
+  ha-color-primary-70: "${p70}"
+  ha-color-primary-80: "${p80}"
+  ha-color-primary-90: "${p90}"
+  ha-color-primary-95: "${p95}"
+
+  modes:
+    # ----------------------------------------------------------------------------------
+    light:
+      # Base colours (stronger than in dark mode, for contrast on a light ground)
+      primary-color: "${l_primary}"
+      rgb-primary-color: "${l_rgb_primary}"
+      accent-color: "#0D9488"
+      rgb-accent-color: "13, 148, 136"
+      primary-background-color: "${l_ground}"
+      secondary-background-color: "${l_secondary}"
+
+      # Text
+      primary-text-color: "#0F172A"
+      rgb-primary-text-color: "15, 23, 42"
+      secondary-text-color: "#475569"
+      disabled-text-color: "#94A3B8"
+      text-primary-color: "#FFFFFF"
+      divider-color: "rgba(15, 23, 42, 0.10)"
+
+      # Dashboard background: three soft light spots on a pale ground
+      lovelace-background: >-
+        radial-gradient(circle at 8% 0%, rgba(${l_spot1}, 0.45) 0%, rgba(${l_spot1}, 0) 45%) fixed,
+        radial-gradient(circle at 96% 42%, rgba(${l_spot2}, 0.30) 0%, rgba(${l_spot2}, 0) 40%) fixed,
+        radial-gradient(circle at 42% 108%, rgba(${l_spot3}, 0.26) 0%, rgba(${l_spot3}, 0) 42%) fixed,
+        ${l_ground}
+
+      # The same light behind every other page and behind the sidebar (a dashboard paints
+      # its own background only beside the sidebar); toolbars that would take it stay plain.
+      ha-panel-background: >-
+        radial-gradient(circle at 8% 0%, rgba(${l_spot1}, 0.45) 0%, rgba(${l_spot1}, 0) 45%) fixed,
+        radial-gradient(circle at 96% 42%, rgba(${l_spot2}, 0.30) 0%, rgba(${l_spot2}, 0) 40%) fixed,
+        radial-gradient(circle at 42% 108%, rgba(${l_spot3}, 0.26) 0%, rgba(${l_spot3}, 0) 42%) fixed,
+        ${l_ground}
+      ha-panel-toolbar-background: "${l_ground}"
+
+      # Cards: white frosted glass. card-background-color is also the surface of
+      # drop-down menus, so it stays opaque; cards use ha-card-background.
+      card-background-color: "#FFFFFF"
+      ha-card-background: "rgba(255, 255, 255, 0.55)"
+      ha-card-border-color: "rgba(255, 255, 255, 0.75)"
+      ha-card-box-shadow: "0 10px 30px rgba(15, 23, 42, 0.08)"
+
+      # Header and sidebar
+      app-header-background-color: "rgba(${l_ground_rgb}, 0.96)"
+      app-header-text-color: "#0F172A"
+      app-header-selection-bar-color: "${l_primary}"
+      # Translucent: the coloured light behind the page shows through the sidebar
+      sidebar-background-color: "rgba(${l_sidebar_rgb}, 0.5)"
+      sidebar-text-color: "#334155"
+      sidebar-icon-color: "#475569"
+      sidebar-selected-text-color: "#0F172A"
+      sidebar-selected-icon-color: "${l_primary}"
+      sidebar-menu-button-text-color: "#0F172A"
+
+      # Icons and states
+      state-icon-color: "#475569"
+      state-light-active-color: "#F59E0B"
+      # Inactive states (off, clear, away): icons, the logbook's discs, history bars
+      state-inactive-color: "#64748B"
+
+      # Menus and dialogs
+      mdc-theme-surface: "#FFFFFF"
+      ha-dialog-surface-background: "rgba(255, 255, 255, 0.86)"
+      ha-dialog-surface-backdrop-filter: "blur(28px) saturate(170%)"
+
+      # Form fields and selects (ha-color-form-* for current fields, input-* for older ones)
+      ha-color-form-background: "rgba(15, 23, 42, 0.05)"
+      ha-color-form-background-hover: "rgba(15, 23, 42, 0.08)"
+      ha-color-form-background-disabled: "rgba(15, 23, 42, 0.03)"
+      ha-color-border-neutral-loud: "rgba(15, 23, 42, 0.30)"
+      input-fill-color: "rgba(15, 23, 42, 0.05)"
+      input-ink-color: "#0F172A"
+      input-label-ink-color: "#475569"
+      input-idle-line-color: "rgba(15, 23, 42, 0.30)"
+      input-hover-line-color: "rgba(15, 23, 42, 0.55)"
+      input-dropdown-icon-color: "#475569"
+
+      # Sliders (switches follow the ha-color-primary-* palette above)
+      slider-color: "${l_primary}"
+      slider-track-color: "rgba(15, 23, 42, 0.12)"
+
+      # Tables and lists
+      table-row-background-color: "rgba(255, 255, 255, 0.50)"
+      table-row-alternative-background-color: "rgba(255, 255, 255, 0.70)"
+      data-table-background-color: "rgba(255, 255, 255, 0.60)"
+
+      # card-mod
+      card-mod-theme: ${name}
+      card-mod-sidebar: |
+        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+        :host {
+          backdrop-filter: blur(24px) saturate(170%);
+          -webkit-backdrop-filter: blur(24px) saturate(170%);
+        }
+      card-mod-root: |
+        .header {
+          --app-header-background-color: transparent;
+          background: rgba(${l_ground_rgb}, 0.86) !important;
+          backdrop-filter: blur(24px) saturate(170%);
+          -webkit-backdrop-filter: blur(24px) saturate(170%);
+          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+          --wa-focus-ring-color: transparent;
+        }
+        .header .toolbar {
+          background: transparent !important;
+        }
+        /* No focus frame left around a tapped view tab; the underline marks the active one. */
+        .header ha-tab-group-tab,
+        .header ha-tab-group-tab::part(base) {
+          outline: none !important;
+        }
+      card-mod-card: |
+        ha-card {
+          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%);
+          transition: box-shadow 180ms ease, border-color 180ms ease;
+        }
+        ha-card:hover {
+          border-color: rgba(255, 255, 255, 0.95);
+          box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+        }
+        /* Active tiles (light on, device running): border and glow in the state colour. */
+        ha-card.active {
+          border-color: color-mix(in srgb, var(--tile-color, #F59E0B) 45%, transparent);
+          background-image: linear-gradient(135deg,
+            color-mix(in srgb, var(--tile-color, #F59E0B) 18%, transparent) 0%,
+            rgba(255, 255, 255, 0.10) 60%);
+          box-shadow: 0 12px 36px color-mix(in srgb, var(--tile-color, #F59E0B) 22%, transparent);
+        }
+
+    # ----------------------------------------------------------------------------------
+    dark:
+      # Base colours
+      primary-color: "${d_primary}"
+      rgb-primary-color: "${d_rgb_primary}"
+      accent-color: "#2DD4BF"
+      rgb-accent-color: "45, 212, 191"
+      primary-background-color: "${d_ground}"
+      secondary-background-color: "${d_secondary}"
+
+      # Text
+      primary-text-color: "rgba(255, 255, 255, 0.92)"
+      rgb-primary-text-color: "235, 237, 245"
+      secondary-text-color: "rgba(255, 255, 255, 0.66)"
+      disabled-text-color: "rgba(255, 255, 255, 0.38)"
+      text-primary-color: "#0B1022"
+      divider-color: "rgba(255, 255, 255, 0.12)"
+
+      # Dashboard background: three blurred light spots on a night ground
+      lovelace-background: >-
+        radial-gradient(circle at 8% 0%, rgba(${d_spot1}, 0.50) 0%, rgba(${d_spot1}, 0) 45%) fixed,
+        radial-gradient(circle at 96% 42%, rgba(${d_spot2}, 0.34) 0%, rgba(${d_spot2}, 0) 40%) fixed,
+        radial-gradient(circle at 42% 108%, rgba(${d_spot3}, 0.28) 0%, rgba(${d_spot3}, 0) 42%) fixed,
+        ${d_ground}
+
+      # The same light behind every other page and behind the sidebar (a dashboard paints
+      # its own background only beside the sidebar); toolbars that would take it stay plain.
+      ha-panel-background: >-
+        radial-gradient(circle at 8% 0%, rgba(${d_spot1}, 0.50) 0%, rgba(${d_spot1}, 0) 45%) fixed,
+        radial-gradient(circle at 96% 42%, rgba(${d_spot2}, 0.34) 0%, rgba(${d_spot2}, 0) 40%) fixed,
+        radial-gradient(circle at 42% 108%, rgba(${d_spot3}, 0.28) 0%, rgba(${d_spot3}, 0) 42%) fixed,
+        ${d_ground}
+      ha-panel-toolbar-background: "${d_ground}"
+
+      # Cards: frosted glass. card-background-color is also the surface of drop-down
+      # menus, so it stays opaque; cards use ha-card-background.
+      card-background-color: "${d_card}"
+      ha-card-background: "rgba(255, 255, 255, 0.08)"
+      ha-card-border-color: "rgba(255, 255, 255, 0.09)"
+      ha-card-box-shadow: "0 10px 30px rgba(0, 0, 0, 0.22)"
+
+      # Header and sidebar
+      app-header-background-color: "rgba(${d_header_rgb}, 0.96)"
+      app-header-text-color: "rgba(255, 255, 255, 0.92)"
+      app-header-selection-bar-color: "${d_primary}"
+      # Translucent: the coloured light behind the page shows through the sidebar
+      sidebar-background-color: "rgba(${d_sidebar_rgb}, 0.5)"
+      sidebar-text-color: "rgba(255, 255, 255, 0.78)"
+      sidebar-icon-color: "rgba(255, 255, 255, 0.70)"
+      sidebar-selected-text-color: "#FFFFFF"
+      sidebar-selected-icon-color: "${d_primary}"
+      sidebar-menu-button-text-color: "rgba(255, 255, 255, 0.92)"
+
+      # Icons and states
+      state-icon-color: "rgba(255, 255, 255, 0.78)"
+      state-light-active-color: "#FBBF24"
+      # Inactive states (off, clear, away): icons, the logbook's discs, history bars
+      state-inactive-color: "#94A3B8"
+
+      # Menus and dialogs
+      mdc-theme-surface: "${d_surface}"
+      ha-dialog-surface-background: "rgba(${d_surface_rgb}, 0.82)"
+      ha-dialog-surface-backdrop-filter: "blur(28px) saturate(170%)"
+
+      # Form fields and selects (ha-color-form-* for current fields, input-* for older ones)
+      ha-color-form-background: "rgba(255, 255, 255, 0.07)"
+      ha-color-form-background-hover: "rgba(255, 255, 255, 0.11)"
+      ha-color-form-background-disabled: "rgba(255, 255, 255, 0.03)"
+      ha-color-border-neutral-loud: "rgba(255, 255, 255, 0.28)"
+      input-fill-color: "rgba(255, 255, 255, 0.07)"
+      input-disabled-fill-color: "rgba(255, 255, 255, 0.03)"
+      input-ink-color: "rgba(255, 255, 255, 0.92)"
+      input-label-ink-color: "rgba(255, 255, 255, 0.66)"
+      input-idle-line-color: "rgba(255, 255, 255, 0.30)"
+      input-hover-line-color: "rgba(255, 255, 255, 0.55)"
+      input-dropdown-icon-color: "rgba(255, 255, 255, 0.70)"
+      code-editor-background-color: "${d_code}"
+
+      # Sliders (switches follow the ha-color-primary-* palette above)
+      slider-color: "${d_primary}"
+      slider-track-color: "rgba(255, 255, 255, 0.15)"
+
+      # Tables and lists
+      table-row-background-color: "rgba(255, 255, 255, 0.03)"
+      table-row-alternative-background-color: "rgba(255, 255, 255, 0.06)"
+      data-table-background-color: "rgba(255, 255, 255, 0.04)"
+
+      # card-mod
+      card-mod-theme: ${name}
+      card-mod-sidebar: |
+        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+        :host {
+          backdrop-filter: blur(24px) saturate(170%);
+          -webkit-backdrop-filter: blur(24px) saturate(170%);
+        }
+      card-mod-root: |
+        .header {
+          --app-header-background-color: transparent;
+          background: rgba(${d_header_rgb}, 0.86) !important;
+          backdrop-filter: blur(24px) saturate(170%);
+          -webkit-backdrop-filter: blur(24px) saturate(170%);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+          --wa-focus-ring-color: transparent;
+        }
+        .header .toolbar {
+          background: transparent !important;
+        }
+        /* No focus frame left around a tapped view tab; the underline marks the active one. */
+        .header ha-tab-group-tab,
+        .header ha-tab-group-tab::part(base) {
+          outline: none !important;
+        }
+      card-mod-card: |
+        ha-card {
+          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%);
+          transition: box-shadow 180ms ease, border-color 180ms ease;
+        }
+        ha-card:hover {
+          border-color: rgba(255, 255, 255, 0.16);
+          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.30);
+        }
+        /* Active tiles (light on, device running): border and glow in the state colour. */
+        ha-card.active {
+          border-color: color-mix(in srgb, var(--tile-color, #FBBF24) 38%, transparent);
+          background-image: linear-gradient(135deg,
+            color-mix(in srgb, var(--tile-color, #FBBF24) 16%, transparent) 0%,
+            rgba(255, 255, 255, 0.02) 60%);
+          box-shadow: 0 12px 40px color-mix(in srgb, var(--tile-color, #FBBF24) 20%, transparent);
+        }
