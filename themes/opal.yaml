@@ -48,8 +48,8 @@ Opal:
       border-color: var(--opal-card-hover-border);
       box-shadow: var(--opal-card-hover-shadow);
     }
-    /* Active tiles (light on, device running): border and glow in the state colour. */
-    ha-card.active {
+    /* Tiles of lights that are on: border and glow in the light's colour. */
+    ha-card.active:has(ha-tile-icon[data-domain="light"]) {
       border-color: color-mix(in srgb,
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
       background-image: linear-gradient(135deg,
@@ -317,8 +317,8 @@ Opal Emerald:
       border-color: var(--opal-card-hover-border);
       box-shadow: var(--opal-card-hover-shadow);
     }
-    /* Active tiles (light on, device running): border and glow in the state colour. */
-    ha-card.active {
+    /* Tiles of lights that are on: border and glow in the light's colour. */
+    ha-card.active:has(ha-tile-icon[data-domain="light"]) {
       border-color: color-mix(in srgb,
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
       background-image: linear-gradient(135deg,
@@ -586,8 +586,8 @@ Opal Amethyst:
       border-color: var(--opal-card-hover-border);
       box-shadow: var(--opal-card-hover-shadow);
     }
-    /* Active tiles (light on, device running): border and glow in the state colour. */
-    ha-card.active {
+    /* Tiles of lights that are on: border and glow in the light's colour. */
+    ha-card.active:has(ha-tile-icon[data-domain="light"]) {
       border-color: color-mix(in srgb,
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
       background-image: linear-gradient(135deg,
@@ -855,8 +855,8 @@ Opal Aquamarine:
       border-color: var(--opal-card-hover-border);
       box-shadow: var(--opal-card-hover-shadow);
     }
-    /* Active tiles (light on, device running): border and glow in the state colour. */
-    ha-card.active {
+    /* Tiles of lights that are on: border and glow in the light's colour. */
+    ha-card.active:has(ha-tile-icon[data-domain="light"]) {
       border-color: color-mix(in srgb,
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
       background-image: linear-gradient(135deg,
@@ -1124,8 +1124,8 @@ Opal Tourmaline:
       border-color: var(--opal-card-hover-border);
       box-shadow: var(--opal-card-hover-shadow);
     }
-    /* Active tiles (light on, device running): border and glow in the state colour. */
-    ha-card.active {
+    /* Tiles of lights that are on: border and glow in the light's colour. */
+    ha-card.active:has(ha-tile-icon[data-domain="light"]) {
       border-color: color-mix(in srgb,
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
       background-image: linear-gradient(135deg,
@@ -1393,8 +1393,8 @@ Opal Onyx:
       border-color: var(--opal-card-hover-border);
       box-shadow: var(--opal-card-hover-shadow);
     }
-    /* Active tiles (light on, device running): border and glow in the state colour. */
-    ha-card.active {
+    /* Tiles of lights that are on: border and glow in the light's colour. */
+    ha-card.active:has(ha-tile-icon[data-domain="light"]) {
       border-color: color-mix(in srgb,
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
       background-image: linear-gradient(135deg,

@@ -107,7 +107,7 @@ Opal is free and stays free. If it brightens your dashboard, a coffee keeps the 
 | Dashboard header | nearly opaque | frosted glass |
 | Light sheen on cards | – | ✓ |
 | Cards light up when you hover over them | – | ✓ |
-| Active tiles (light on, device running) glow in their state colour, a colour light in its own colour | – | ✓ |
+| Tiles of lights that are on glow in the light's colour (amber for lights without a colour) | – | ✓ |
 | Sidebar blurs what is behind it (when it opens over the dashboard on a phone) | – | ✓ |
 
 Without card-mod nothing breaks: the effects in the last five rows are simply left out.
