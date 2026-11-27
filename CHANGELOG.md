@@ -3,7 +3,8 @@
 ## Unreleased
 
 - Editing a dashboard: the header is tinted with the theme's colour and its title, buttons
-  and view icons stay readable; the edit controls take the theme's colour.
+  and view icons stay readable; the edit controls take the theme's colour, and hidden views
+  and subviews are clearly fainter than the visible ones.
 
 ## 1.1.4 (2026-11-27)
 

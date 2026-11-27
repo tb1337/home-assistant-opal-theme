@@ -40,6 +40,15 @@ Opal:
     }
     .edit-icon {
       color: var(--primary-color) !important;
+      /* A disabled arrow (first or last view) stays visible, faint. */
+      --ha-color-on-disabled-quiet: color-mix(in srgb, var(--app-header-edit-text-color) 35%, transparent);
+    }
+    /* Visible views full, hidden views and subviews faint (with the tab's own 0.5: 0.25). */
+    .edit-mode ha-tab-group-tab:not(.hide-tab) {
+      opacity: 1;
+    }
+    .edit-mode ha-tab-group-tab.hide-tab {
+      opacity: 0.5;
     }
     #add-view ha-svg-icon {
       background-color: var(--primary-color) !important;
@@ -327,6 +336,15 @@ Opal Emerald:
     }
     .edit-icon {
       color: var(--primary-color) !important;
+      /* A disabled arrow (first or last view) stays visible, faint. */
+      --ha-color-on-disabled-quiet: color-mix(in srgb, var(--app-header-edit-text-color) 35%, transparent);
+    }
+    /* Visible views full, hidden views and subviews faint (with the tab's own 0.5: 0.25). */
+    .edit-mode ha-tab-group-tab:not(.hide-tab) {
+      opacity: 1;
+    }
+    .edit-mode ha-tab-group-tab.hide-tab {
+      opacity: 0.5;
     }
     #add-view ha-svg-icon {
       background-color: var(--primary-color) !important;
@@ -614,6 +632,15 @@ Opal Amethyst:
     }
     .edit-icon {
       color: var(--primary-color) !important;
+      /* A disabled arrow (first or last view) stays visible, faint. */
+      --ha-color-on-disabled-quiet: color-mix(in srgb, var(--app-header-edit-text-color) 35%, transparent);
+    }
+    /* Visible views full, hidden views and subviews faint (with the tab's own 0.5: 0.25). */
+    .edit-mode ha-tab-group-tab:not(.hide-tab) {
+      opacity: 1;
+    }
+    .edit-mode ha-tab-group-tab.hide-tab {
+      opacity: 0.5;
     }
     #add-view ha-svg-icon {
       background-color: var(--primary-color) !important;
@@ -901,6 +928,15 @@ Opal Aquamarine:
     }
     .edit-icon {
       color: var(--primary-color) !important;
+      /* A disabled arrow (first or last view) stays visible, faint. */
+      --ha-color-on-disabled-quiet: color-mix(in srgb, var(--app-header-edit-text-color) 35%, transparent);
+    }
+    /* Visible views full, hidden views and subviews faint (with the tab's own 0.5: 0.25). */
+    .edit-mode ha-tab-group-tab:not(.hide-tab) {
+      opacity: 1;
+    }
+    .edit-mode ha-tab-group-tab.hide-tab {
+      opacity: 0.5;
     }
     #add-view ha-svg-icon {
       background-color: var(--primary-color) !important;
@@ -1188,6 +1224,15 @@ Opal Tourmaline:
     }
     .edit-icon {
       color: var(--primary-color) !important;
+      /* A disabled arrow (first or last view) stays visible, faint. */
+      --ha-color-on-disabled-quiet: color-mix(in srgb, var(--app-header-edit-text-color) 35%, transparent);
+    }
+    /* Visible views full, hidden views and subviews faint (with the tab's own 0.5: 0.25). */
+    .edit-mode ha-tab-group-tab:not(.hide-tab) {
+      opacity: 1;
+    }
+    .edit-mode ha-tab-group-tab.hide-tab {
+      opacity: 0.5;
     }
     #add-view ha-svg-icon {
       background-color: var(--primary-color) !important;
@@ -1475,6 +1520,15 @@ Opal Onyx:
     }
     .edit-icon {
       color: var(--primary-color) !important;
+      /* A disabled arrow (first or last view) stays visible, faint. */
+      --ha-color-on-disabled-quiet: color-mix(in srgb, var(--app-header-edit-text-color) 35%, transparent);
+    }
+    /* Visible views full, hidden views and subviews faint (with the tab's own 0.5: 0.25). */
+    .edit-mode ha-tab-group-tab:not(.hide-tab) {
+      opacity: 1;
+    }
+    .edit-mode ha-tab-group-tab.hide-tab {
+      opacity: 0.5;
     }
     #add-view ha-svg-icon {
       background-color: var(--primary-color) !important;
