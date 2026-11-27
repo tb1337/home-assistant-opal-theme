@@ -26,6 +26,16 @@ ${name}:
     .header .toolbar {
       background: transparent !important;
     }
+    /* Editing a dashboard: tinted glass, and the edit controls in the theme's own colour. */
+    .edit-mode .header {
+      background: var(--opal-header-edit-glass) !important;
+    }
+    .edit-icon {
+      color: var(--primary-color) !important;
+    }
+    #add-view ha-svg-icon {
+      background-color: var(--primary-color) !important;
+    }
     /* No focus frame left around a tapped view tab; the underline marks the active one. */
     .header ha-tab-group-tab,
     .header ha-tab-group-tab::part(base) {
@@ -119,6 +129,9 @@ ${name}:
       app-header-background-color: "rgba(${l_ground_rgb}, 0.96)"
       app-header-text-color: "#0F172A"
       app-header-selection-bar-color: "${l_primary}"
+      # Editing a dashboard: the header tinted with the accent, the text stays dark
+      app-header-edit-background-color: "color-mix(in srgb, ${l_primary} 12%, rgb(${l_ground_rgb}))"
+      app-header-edit-text-color: "#0F172A"
       # Translucent: the coloured light behind the page shows through the sidebar
       sidebar-background-color: "rgba(${l_sidebar_rgb}, 0.5)"
       sidebar-text-color: "#334155"
@@ -161,6 +174,7 @@ ${name}:
 
       # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
       opal-header-glass: "rgba(${l_ground_rgb}, 0.86)"
+      opal-header-edit-glass: "color-mix(in srgb, ${l_primary} 12%, rgba(${l_ground_rgb}, 0.86))"
       opal-header-border: "rgba(15, 23, 42, 0.06)"
       opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%)"
       opal-card-hover-border: "rgba(255, 255, 255, 0.95)"
@@ -217,6 +231,9 @@ ${name}:
       app-header-background-color: "rgba(${d_header_rgb}, 0.96)"
       app-header-text-color: "rgba(255, 255, 255, 0.92)"
       app-header-selection-bar-color: "${d_primary}"
+      # Editing a dashboard: the header tinted with the accent, the text stays light
+      app-header-edit-background-color: "color-mix(in srgb, ${d_primary} 18%, rgb(${d_header_rgb}))"
+      app-header-edit-text-color: "rgba(255, 255, 255, 0.92)"
       # Translucent: the coloured light behind the page shows through the sidebar
       sidebar-background-color: "rgba(${d_sidebar_rgb}, 0.5)"
       sidebar-text-color: "rgba(255, 255, 255, 0.78)"
@@ -261,6 +278,7 @@ ${name}:
 
       # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
       opal-header-glass: "rgba(${d_header_rgb}, 0.86)"
+      opal-header-edit-glass: "color-mix(in srgb, ${d_primary} 18%, rgba(${d_header_rgb}, 0.86))"
       opal-header-border: "rgba(255, 255, 255, 0.07)"
       opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%)"
       opal-card-hover-border: "rgba(255, 255, 255, 0.16)"

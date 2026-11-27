@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Editing a dashboard: the header is tinted with the theme's colour and its title, buttons
+  and view icons stay readable; the edit controls take the theme's colour.
+
 ## 1.1.4 (2026-11-27)
 
 - Only lights glow: a tile glows in its light's colour while the light is on; other tiles,
