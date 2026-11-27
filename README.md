@@ -1,8 +1,26 @@
-# Opal Theme
+<div align="center">
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
-[![Validate](https://github.com/tb1337/home-assistant-opal-theme/actions/workflows/validate.yml/badge.svg)](https://github.com/tb1337/home-assistant-opal-theme/actions/workflows/validate.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+# 💎 Opal Theme
+
+### Frosted glass over soft, shimmering light for Home Assistant, in light and dark ✨
+
+[![HACS](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
+[![Release](https://img.shields.io/github/v/release/tb1337/home-assistant-opal-theme?color=7C9CFF&label=release)](https://github.com/tb1337/home-assistant-opal-theme/releases)
+[![Validate](https://img.shields.io/github/actions/workflow/status/tb1337/home-assistant-opal-theme/validate.yml?label=validate)](https://github.com/tb1337/home-assistant-opal-theme/actions/workflows/validate.yml)
+[![Commits](https://img.shields.io/github/commit-activity/y/tb1337/home-assistant-opal-theme?color=34D399&label=commits)](https://github.com/tb1337/home-assistant-opal-theme/commits/main)
+[![License: MIT](https://img.shields.io/badge/license-MIT-F472B6.svg)](LICENSE)
+[![Support me](https://img.shields.io/badge/support-me-4F5FE8.svg?logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/tbsch)
+
+[![Opal](https://img.shields.io/badge/Opal-4F6BED?style=for-the-badge)](#-gallery)
+[![Emerald](https://img.shields.io/badge/Emerald-047857?style=for-the-badge)](#-gallery)
+[![Amethyst](https://img.shields.io/badge/Amethyst-6D28D9?style=for-the-badge)](#-gallery)
+[![Aquamarine](https://img.shields.io/badge/Aquamarine-0E7490?style=for-the-badge)](#-gallery)
+[![Tourmaline](https://img.shields.io/badge/Tourmaline-BE185D?style=for-the-badge)](#-gallery)
+[![Onyx](https://img.shields.io/badge/Onyx-334155?style=for-the-badge)](#-gallery)
+
+[![Open your Home Assistant instance and show Opal Theme in the Marketplace.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=tb1337&repository=home-assistant-opal-theme&category=theme)
+
+</div>
 
 A Home Assistant theme with frosted-glass cards over soft coloured light, like an opal: milky
 glass with colours shimmering through. Each theme has a light and a dark mode, and besides Opal
@@ -16,21 +34,21 @@ itself there are five gemstone variants.
 <sub>Rendered previews of a demo dashboard in the theme's colours, as with card-mod
 (`script/screenshots.py`); not captures of Home Assistant, and your own cards will differ.</sub>
 
-## Features
+## ✨ Features
 
-- **Frosted-glass cards**: translucent cards with backdrop blur and extra saturation, a fine
+- 🧊 **Frosted-glass cards**: translucent cards with backdrop blur and extra saturation, a fine
   border and a soft shadow.
-- **Soft coloured light**: three blurred light spots (periwinkle, teal, pink) behind every
+- 🌈 **Soft coloured light**: three blurred light spots (periwinkle, teal, pink) behind every
   page, dashboards and settings alike; they stay in place while you scroll.
-- **Light and dark mode**: pale blue-grey with white glass, or night blue with dark glass. Pick
+- 🌗 **Light and dark mode**: pale blue-grey with white glass, or night blue with dark glass. Pick
   one or let Home Assistant follow your device.
-- **Glass dialogs and sidebar**: dialogs and bottom sheets blur what is behind them; the
+- 🪟 **Glass dialogs and sidebar**: dialogs and bottom sheets blur what is behind them; the
   sidebar is translucent, so the coloured light shines through it.
-- **Readable forms and menus**: glass form fields and selects, opaque drop-down menus.
-- **More glass with [card-mod](https://github.com/thomasloven/lovelace-card-mod)**
-  (optional, recommended): see [With and without card-mod](#with-and-without-card-mod).
+- 📝 **Readable forms and menus**: glass form fields and selects, opaque drop-down menus.
+- 🧩 **More glass with [card-mod](https://github.com/thomasloven/lovelace-card-mod)**
+  (optional, recommended): see [With and without card-mod](#-with-and-without-card-mod).
 
-## Variants
+## 💎 Variants
 
 All six share the glass, the layout and the readable greys; each has its own accent, a ground
 tinted to it and three light spots in its tones.
@@ -46,7 +64,7 @@ tinted to it and three light spots in its tones.
 
 Pick one in your profile like any other theme.
 
-### Gallery
+### 🖼️ Gallery
 
 | Theme | Desktop light | Desktop dark | Phone light | Phone dark |
 |---|:---:|:---:|:---:|:---:|
@@ -57,16 +75,27 @@ Pick one in your profile like any other theme.
 | **Opal Tourmaline** | <a href="docs/screenshots/opal-tourmaline-desktop-light.webp"><img src="docs/screenshots/opal-tourmaline-desktop-light.webp" alt="Opal Tourmaline in light mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-tourmaline-desktop-dark.webp"><img src="docs/screenshots/opal-tourmaline-desktop-dark.webp" alt="Opal Tourmaline in dark mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-tourmaline-mobile-light.webp"><img src="docs/screenshots/opal-tourmaline-mobile-light.webp" alt="Opal Tourmaline in light mode on a phone" width="90"></a> | <a href="docs/screenshots/opal-tourmaline-mobile-dark.webp"><img src="docs/screenshots/opal-tourmaline-mobile-dark.webp" alt="Opal Tourmaline in dark mode on a phone" width="90"></a> |
 | **Opal Onyx** | <a href="docs/screenshots/opal-onyx-desktop-light.webp"><img src="docs/screenshots/opal-onyx-desktop-light.webp" alt="Opal Onyx in light mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-onyx-desktop-dark.webp"><img src="docs/screenshots/opal-onyx-desktop-dark.webp" alt="Opal Onyx in dark mode on a desktop" width="240"></a> | <a href="docs/screenshots/opal-onyx-mobile-light.webp"><img src="docs/screenshots/opal-onyx-mobile-light.webp" alt="Opal Onyx in light mode on a phone" width="90"></a> | <a href="docs/screenshots/opal-onyx-mobile-dark.webp"><img src="docs/screenshots/opal-onyx-mobile-dark.webp" alt="Opal Onyx in dark mode on a phone" width="90"></a> |
 
-## Requirements
+<div align="center">
+
+### ☕ Like the shimmer?
+
+Opal is free and stays free. If it brightens your dashboard, a coffee keeps the next gem coming.
+
+<a href="https://buymeacoffee.com/tbsch"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=%E2%98%95&slug=tbsch&button_colour=4F5FE8&font_colour=ffffff&font_family=Inter&outline_colour=ffffff&coffee_colour=FFDD00" alt="Buy me a coffee" height="48"></a>
+
+</div>
+
+## ✅ Requirements
 
 - Home Assistant 2026.11 or newer.
 - Optional, recommended: [card-mod](https://github.com/thomasloven/lovelace-card-mod).
   Opal works without it; a few effects need it.
 
-## With and without card-mod
+## 🧩 With and without card-mod
 
-Opal is a complete theme on its own. card-mod is an optional add-on: it lets a theme style
-parts of Home Assistant that theme variables cannot reach. We recommend installing it.
+> [!TIP]
+> Opal is a complete theme on its own. card-mod is an optional add-on: it lets a theme style
+> parts of Home Assistant that theme variables cannot reach. We recommend installing it.
 
 | | Without card-mod | With card-mod |
 |---|---|---|
@@ -81,14 +110,15 @@ parts of Home Assistant that theme variables cannot reach. We recommend installi
 
 Without card-mod nothing breaks: the effects in the last four rows are simply left out.
 
-## Installation
+## 📦 Installation
 
-### Marketplace / HACS
+### Marketplace / HACS (recommended)
 
-1. In Home Assistant open **Settings → Marketplace** (HACS on older versions).
-2. Add this repository as a custom repository of type **Theme**:
-   `https://github.com/tb1337/home-assistant-opal-theme`.
-3. Search for **Opal Theme** and download it.
+[![Open your Home Assistant instance and show Opal Theme in the Marketplace.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=tb1337&repository=home-assistant-opal-theme&category=theme)
+
+1. In Home Assistant open **Settings → Marketplace** (HACS on older versions), or use the
+   button above.
+2. Search for **Opal Theme** and download it. Updates arrive there as well.
 
 ### Manual
 
@@ -111,7 +141,7 @@ Later changes to the file only need **Developer tools → Actions → `frontend.
 Open your **profile**, choose **Opal** or one of its variants under *Theme*, then **Auto**,
 **Light** or **Dark**.
 
-## Installing card-mod
+## 🧩 Installing card-mod
 
 Install card-mod from the Marketplace. It works as a dashboard resource; for themes it applies
 most reliably when it is also loaded as an extra module, so it is ready before the first page
@@ -125,7 +155,7 @@ frontend:
     - /local/community/lovelace-card-mod/card-mod.js
 ```
 
-## Customising
+## 🎨 Customising
 
 `themes/opal.yaml` is generated: the shared part is `src/theme.template.yaml`, each theme's
 colours are in `src/variants.yaml`. For your own copy you can edit `themes/opal.yaml` directly;
@@ -145,7 +175,7 @@ every theme (needs Playwright with Chromium and Pillow).
   `ha-panel-background` (all other pages and behind the sidebar). Replace it with an image if you like
   (`center / cover no-repeat fixed url('/local/your-image.jpg')`).
 
-## Known limitations
+## ⚠️ Known limitations
 
 - **Fonts**: a theme cannot load web fonts. Opal asks for Inter and Space Grotesk and falls back
   to the system font (San Francisco on Apple devices) when they are not installed.
@@ -155,11 +185,11 @@ every theme (needs Playwright with Chromium and Pillow).
 - **Custom cards** follow the theme as far as they use Home Assistant's variables; some draw
   their own colours.
 
-## Credits
+## 🙏 Credits
 
 Inspired by the structure of
 [basnijholt/lovelace-ios-themes](https://github.com/basnijholt/lovelace-ios-themes).
 
-## License
+## 📄 License
 
 [MIT](LICENSE)
