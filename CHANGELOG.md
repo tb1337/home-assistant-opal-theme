@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.1.2 (2026-11-27)
 
 - Glass effects with card-mod: a frosted header and sidebar, a soft sheen on every card, a
   lift on hover, and lit tiles that glow in the colour of their light.
