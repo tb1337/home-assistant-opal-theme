@@ -5,8 +5,10 @@
 ### Frosted glass over soft, shimmering light for Home Assistant, in light and dark ✨
 
 [![HACS](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
+[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2026.11%2B-18BCF2.svg?logo=homeassistant&logoColor=white)](https://www.home-assistant.io/)
 [![Release](https://img.shields.io/github/v/release/tb1337/home-assistant-opal-theme?color=7C9CFF&label=release)](https://github.com/tb1337/home-assistant-opal-theme/releases)
 [![Validate](https://img.shields.io/github/actions/workflow/status/tb1337/home-assistant-opal-theme/validate.yml?label=validate)](https://github.com/tb1337/home-assistant-opal-theme/actions/workflows/validate.yml)
+[![card-mod](https://img.shields.io/badge/card--mod-recommended-34D399.svg)](#-with-and-without-card-mod)
 [![License: MIT](https://img.shields.io/badge/license-MIT-F472B6.svg)](LICENSE)
 [![Support me](https://img.shields.io/badge/support-me-4F5FE8.svg?logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/tbsch)
 
