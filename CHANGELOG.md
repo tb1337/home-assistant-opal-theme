@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Opal needs only one font now, Inter: headings use it too, and the README's font guide is
+  shorter. Space Grotesk can be removed.
+
 ## 1.1.2 (2026-11-27)
 
 - Glass effects with card-mod: a frosted header and sidebar, a soft sheen on every card, a

@@ -60,7 +60,6 @@ Opal:
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
     }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-  ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
   ha-card-border-radius: "20px"
   ha-card-backdrop-filter: "blur(24px) saturate(170%)"
@@ -330,7 +329,6 @@ Opal Emerald:
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
     }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-  ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
   ha-card-border-radius: "20px"
   ha-card-backdrop-filter: "blur(24px) saturate(170%)"
@@ -600,7 +598,6 @@ Opal Amethyst:
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
     }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-  ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
   ha-card-border-radius: "20px"
   ha-card-backdrop-filter: "blur(24px) saturate(170%)"
@@ -870,7 +867,6 @@ Opal Aquamarine:
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
     }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-  ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
   ha-card-border-radius: "20px"
   ha-card-backdrop-filter: "blur(24px) saturate(170%)"
@@ -1140,7 +1136,6 @@ Opal Tourmaline:
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
     }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-  ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
   ha-card-border-radius: "20px"
   ha-card-backdrop-filter: "blur(24px) saturate(170%)"
@@ -1410,7 +1405,6 @@ Opal Onyx:
         var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
     }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-  ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
   ha-card-border-radius: "20px"
   ha-card-backdrop-filter: "blur(24px) saturate(170%)"

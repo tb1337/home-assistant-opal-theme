@@ -32,7 +32,7 @@ itself there are five gemstone variants.
 | <img src="docs/screenshots/opal-desktop-light.webp" alt="Opal in light mode on a desktop" width="420"> | <img src="docs/screenshots/opal-desktop-dark.webp" alt="Opal in dark mode on a desktop" width="420"> |
 | <img src="docs/screenshots/opal-mobile-light.webp" alt="Opal in light mode on a phone" width="200"> | <img src="docs/screenshots/opal-mobile-dark.webp" alt="Opal in dark mode on a phone" width="200"> |
 
-<sub>Screenshots of a demo dashboard in Home Assistant, with card-mod and the fonts installed.</sub>
+<sub>Screenshots of a demo dashboard in Home Assistant, with card-mod and Inter installed.</sub>
 
 ## ✨ Features
 
@@ -90,7 +90,7 @@ Opal is free and stays free. If it brightens your dashboard, a coffee keeps the 
 - Home Assistant 2026.11 or newer.
 - Optional, recommended: [card-mod](https://github.com/thomasloven/lovelace-card-mod).
   Opal works without it; a few effects need it.
-- Optional: the fonts Inter and Space Grotesk, see [Fonts](#-fonts-optional).
+- Optional: the font Inter, see [Font](#-font-optional).
 
 ## 🧩 With and without card-mod
 
@@ -157,25 +157,17 @@ frontend:
     - /local/community/lovelace-card-mod/card-mod.js
 ```
 
-## 🔤 Fonts (optional)
+## 🔤 Font (optional)
 
-Opal asks for **Inter** (text) and **Space Grotesk** (where Home Assistant uses its heading
-font). A theme cannot load fonts, so without them Home Assistant uses your system font, which
-works just as well. To get the intended look, serve the two fonts from Home Assistant once.
-Both are under the SIL Open Font License and may be self-hosted.
+Opal asks for **Inter**. A theme cannot load fonts, so without it Home Assistant uses your
+system font, which works just as well. To get the intended look, serve Inter from Home
+Assistant once. It is under the SIL Open Font License and may be self-hosted.
 
-1. Download the two variable fonts (every weight in one file each):
-   [Space Grotesk](https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2)
-   and [Inter](https://cdn.jsdelivr.net/npm/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2).
-2. Put both into `config/www/fonts/` and add `config/www/fonts/opal-fonts.css`:
+1. Download the variable font (every weight in one file):
+   [Inter](https://cdn.jsdelivr.net/npm/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2).
+2. Put it into `config/www/fonts/` and add `config/www/fonts/opal-fonts.css`:
 
    ```css
-   @font-face {
-     font-family: 'Space Grotesk';
-     src: url('/local/fonts/space-grotesk-latin-wght-normal.woff2') format('woff2');
-     font-weight: 300 700;
-     font-display: swap;
-   }
    @font-face {
      font-family: 'Inter';
      src: url('/local/fonts/inter-latin-wght-normal.woff2') format('woff2');
@@ -190,10 +182,10 @@ Both are under the SIL Open Font License and may be self-hosted.
 
 > [!NOTE]
 > Like card-mod, a dashboard resource loads with the first dashboard, so pages such as the
-> settings switch to the fonts once a dashboard has been opened.
+> settings switch to the font once a dashboard has been opened.
 
-Prefer not to host them? Add `https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@100..900&display=swap`
-as the stylesheet resource instead; every device then fetches the fonts from Google.
+Prefer not to host it? Add `https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap`
+as the stylesheet resource instead; every device then fetches the font from Google.
 
 ## 🎨 Customising
 
@@ -218,9 +210,8 @@ Pillow and PyYAML, and Opal with card-mod installed there).
 
 ## ⚠️ Known limitations
 
-- **Fonts**: a theme cannot load web fonts. Opal asks for Inter and Space Grotesk and falls back
-  to the system font (San Francisco on Apple devices) until you add them, see
-  [Fonts](#-fonts-optional).
+- **Font**: a theme cannot load web fonts. Opal asks for Inter and falls back to the system
+  font (San Francisco on Apple devices) until you add it, see [Font](#-font-optional).
 - **Blur in the iOS app**: the glass header and the sidebar are blurred in browsers; in the
   Home Assistant iOS app that blur may not apply, so both are kept opaque enough to stay
   readable.
