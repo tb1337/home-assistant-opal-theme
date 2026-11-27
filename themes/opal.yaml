@@ -14,6 +14,51 @@
 Opal:
   # Shared by both modes
   card-mod-theme: Opal
+  # card-mod reads its styles only from the theme's top level, not from modes; the values
+  # that differ between light and dark are the opal-* variables in each mode.
+  card-mod-sidebar: |
+    /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+    :host {
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+    }
+  card-mod-root: |
+    .header {
+      --app-header-background-color: transparent;
+      background: var(--opal-header-glass) !important;
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      border-bottom: 1px solid var(--opal-header-border);
+      --wa-focus-ring-color: transparent;
+    }
+    .header .toolbar {
+      background: transparent !important;
+    }
+    /* No focus frame left around a tapped view tab; the underline marks the active one. */
+    .header ha-tab-group-tab,
+    .header ha-tab-group-tab::part(base) {
+      outline: none !important;
+    }
+  card-mod-card: |
+    ha-card {
+      background-image: var(--opal-card-sheen);
+      transition: box-shadow 180ms ease, border-color 180ms ease;
+    }
+    ha-card:hover {
+      border-color: var(--opal-card-hover-border);
+      box-shadow: var(--opal-card-hover-shadow);
+    }
+    /* Active tiles (light on, device running): border and glow in the state colour. */
+    ha-card.active {
+      border-color: color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
+      background-image: linear-gradient(135deg,
+        color-mix(in srgb,
+          var(--tile-color, var(--opal-active-fallback)) var(--opal-active-tint), transparent) 0%,
+        var(--opal-active-tint-end) 60%);
+      box-shadow: var(--opal-active-glow) color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
+    }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
@@ -123,48 +168,18 @@ Opal:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.70)"
       data-table-background-color: "rgba(255, 255, 255, 0.60)"
 
-      # card-mod
-      card-mod-theme: Opal
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(238, 241, 250, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #F59E0B) 45%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #F59E0B) 18%, transparent) 0%,
-            rgba(255, 255, 255, 0.10) 60%);
-          box-shadow: 0 12px 36px color-mix(in srgb, var(--tile-color, #F59E0B) 22%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(238, 241, 250, 0.86)"
+      opal-header-border: "rgba(15, 23, 42, 0.06)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.95)"
+      opal-card-hover-shadow: "0 14px 40px rgba(15, 23, 42, 0.12)"
+      opal-active-fallback: "#F59E0B"
+      opal-active-border: "45%"
+      opal-active-tint: "18%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.10)"
+      opal-active-glow: "0 12px 36px"
+      opal-active-glow-mix: "22%"
 
     # ----------------------------------------------------------------------------------
     dark:
@@ -253,52 +268,67 @@ Opal:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.06)"
       data-table-background-color: "rgba(255, 255, 255, 0.04)"
 
-      # card-mod
-      card-mod-theme: Opal
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(9, 13, 30, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.16);
-          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.30);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #FBBF24) 38%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #FBBF24) 16%, transparent) 0%,
-            rgba(255, 255, 255, 0.02) 60%);
-          box-shadow: 0 12px 40px color-mix(in srgb, var(--tile-color, #FBBF24) 20%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(9, 13, 30, 0.86)"
+      opal-header-border: "rgba(255, 255, 255, 0.07)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.16)"
+      opal-card-hover-shadow: "0 14px 40px rgba(0, 0, 0, 0.30)"
+      opal-active-fallback: "#FBBF24"
+      opal-active-border: "38%"
+      opal-active-tint: "16%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.02)"
+      opal-active-glow: "0 12px 40px"
+      opal-active-glow-mix: "20%"
 
 Opal Emerald:
   # Shared by both modes
   card-mod-theme: Opal Emerald
+  # card-mod reads its styles only from the theme's top level, not from modes; the values
+  # that differ between light and dark are the opal-* variables in each mode.
+  card-mod-sidebar: |
+    /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+    :host {
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+    }
+  card-mod-root: |
+    .header {
+      --app-header-background-color: transparent;
+      background: var(--opal-header-glass) !important;
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      border-bottom: 1px solid var(--opal-header-border);
+      --wa-focus-ring-color: transparent;
+    }
+    .header .toolbar {
+      background: transparent !important;
+    }
+    /* No focus frame left around a tapped view tab; the underline marks the active one. */
+    .header ha-tab-group-tab,
+    .header ha-tab-group-tab::part(base) {
+      outline: none !important;
+    }
+  card-mod-card: |
+    ha-card {
+      background-image: var(--opal-card-sheen);
+      transition: box-shadow 180ms ease, border-color 180ms ease;
+    }
+    ha-card:hover {
+      border-color: var(--opal-card-hover-border);
+      box-shadow: var(--opal-card-hover-shadow);
+    }
+    /* Active tiles (light on, device running): border and glow in the state colour. */
+    ha-card.active {
+      border-color: color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
+      background-image: linear-gradient(135deg,
+        color-mix(in srgb,
+          var(--tile-color, var(--opal-active-fallback)) var(--opal-active-tint), transparent) 0%,
+        var(--opal-active-tint-end) 60%);
+      box-shadow: var(--opal-active-glow) color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
+    }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
@@ -408,48 +438,18 @@ Opal Emerald:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.70)"
       data-table-background-color: "rgba(255, 255, 255, 0.60)"
 
-      # card-mod
-      card-mod-theme: Opal Emerald
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(234, 244, 239, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #F59E0B) 45%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #F59E0B) 18%, transparent) 0%,
-            rgba(255, 255, 255, 0.10) 60%);
-          box-shadow: 0 12px 36px color-mix(in srgb, var(--tile-color, #F59E0B) 22%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(234, 244, 239, 0.86)"
+      opal-header-border: "rgba(15, 23, 42, 0.06)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.95)"
+      opal-card-hover-shadow: "0 14px 40px rgba(15, 23, 42, 0.12)"
+      opal-active-fallback: "#F59E0B"
+      opal-active-border: "45%"
+      opal-active-tint: "18%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.10)"
+      opal-active-glow: "0 12px 36px"
+      opal-active-glow-mix: "22%"
 
     # ----------------------------------------------------------------------------------
     dark:
@@ -538,52 +538,67 @@ Opal Emerald:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.06)"
       data-table-background-color: "rgba(255, 255, 255, 0.04)"
 
-      # card-mod
-      card-mod-theme: Opal Emerald
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(0, 19, 11, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.16);
-          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.30);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #FBBF24) 38%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #FBBF24) 16%, transparent) 0%,
-            rgba(255, 255, 255, 0.02) 60%);
-          box-shadow: 0 12px 40px color-mix(in srgb, var(--tile-color, #FBBF24) 20%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(0, 19, 11, 0.86)"
+      opal-header-border: "rgba(255, 255, 255, 0.07)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.16)"
+      opal-card-hover-shadow: "0 14px 40px rgba(0, 0, 0, 0.30)"
+      opal-active-fallback: "#FBBF24"
+      opal-active-border: "38%"
+      opal-active-tint: "16%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.02)"
+      opal-active-glow: "0 12px 40px"
+      opal-active-glow-mix: "20%"
 
 Opal Amethyst:
   # Shared by both modes
   card-mod-theme: Opal Amethyst
+  # card-mod reads its styles only from the theme's top level, not from modes; the values
+  # that differ between light and dark are the opal-* variables in each mode.
+  card-mod-sidebar: |
+    /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+    :host {
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+    }
+  card-mod-root: |
+    .header {
+      --app-header-background-color: transparent;
+      background: var(--opal-header-glass) !important;
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      border-bottom: 1px solid var(--opal-header-border);
+      --wa-focus-ring-color: transparent;
+    }
+    .header .toolbar {
+      background: transparent !important;
+    }
+    /* No focus frame left around a tapped view tab; the underline marks the active one. */
+    .header ha-tab-group-tab,
+    .header ha-tab-group-tab::part(base) {
+      outline: none !important;
+    }
+  card-mod-card: |
+    ha-card {
+      background-image: var(--opal-card-sheen);
+      transition: box-shadow 180ms ease, border-color 180ms ease;
+    }
+    ha-card:hover {
+      border-color: var(--opal-card-hover-border);
+      box-shadow: var(--opal-card-hover-shadow);
+    }
+    /* Active tiles (light on, device running): border and glow in the state colour. */
+    ha-card.active {
+      border-color: color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
+      background-image: linear-gradient(135deg,
+        color-mix(in srgb,
+          var(--tile-color, var(--opal-active-fallback)) var(--opal-active-tint), transparent) 0%,
+        var(--opal-active-tint-end) 60%);
+      box-shadow: var(--opal-active-glow) color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
+    }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
@@ -693,48 +708,18 @@ Opal Amethyst:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.70)"
       data-table-background-color: "rgba(255, 255, 255, 0.60)"
 
-      # card-mod
-      card-mod-theme: Opal Amethyst
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(241, 240, 249, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #F59E0B) 45%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #F59E0B) 18%, transparent) 0%,
-            rgba(255, 255, 255, 0.10) 60%);
-          box-shadow: 0 12px 36px color-mix(in srgb, var(--tile-color, #F59E0B) 22%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(241, 240, 249, 0.86)"
+      opal-header-border: "rgba(15, 23, 42, 0.06)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.95)"
+      opal-card-hover-shadow: "0 14px 40px rgba(15, 23, 42, 0.12)"
+      opal-active-fallback: "#F59E0B"
+      opal-active-border: "45%"
+      opal-active-tint: "18%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.10)"
+      opal-active-glow: "0 12px 36px"
+      opal-active-glow-mix: "22%"
 
     # ----------------------------------------------------------------------------------
     dark:
@@ -823,52 +808,67 @@ Opal Amethyst:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.06)"
       data-table-background-color: "rgba(255, 255, 255, 0.04)"
 
-      # card-mod
-      card-mod-theme: Opal Amethyst
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(16, 11, 28, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.16);
-          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.30);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #FBBF24) 38%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #FBBF24) 16%, transparent) 0%,
-            rgba(255, 255, 255, 0.02) 60%);
-          box-shadow: 0 12px 40px color-mix(in srgb, var(--tile-color, #FBBF24) 20%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(16, 11, 28, 0.86)"
+      opal-header-border: "rgba(255, 255, 255, 0.07)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.16)"
+      opal-card-hover-shadow: "0 14px 40px rgba(0, 0, 0, 0.30)"
+      opal-active-fallback: "#FBBF24"
+      opal-active-border: "38%"
+      opal-active-tint: "16%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.02)"
+      opal-active-glow: "0 12px 40px"
+      opal-active-glow-mix: "20%"
 
 Opal Aquamarine:
   # Shared by both modes
   card-mod-theme: Opal Aquamarine
+  # card-mod reads its styles only from the theme's top level, not from modes; the values
+  # that differ between light and dark are the opal-* variables in each mode.
+  card-mod-sidebar: |
+    /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+    :host {
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+    }
+  card-mod-root: |
+    .header {
+      --app-header-background-color: transparent;
+      background: var(--opal-header-glass) !important;
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      border-bottom: 1px solid var(--opal-header-border);
+      --wa-focus-ring-color: transparent;
+    }
+    .header .toolbar {
+      background: transparent !important;
+    }
+    /* No focus frame left around a tapped view tab; the underline marks the active one. */
+    .header ha-tab-group-tab,
+    .header ha-tab-group-tab::part(base) {
+      outline: none !important;
+    }
+  card-mod-card: |
+    ha-card {
+      background-image: var(--opal-card-sheen);
+      transition: box-shadow 180ms ease, border-color 180ms ease;
+    }
+    ha-card:hover {
+      border-color: var(--opal-card-hover-border);
+      box-shadow: var(--opal-card-hover-shadow);
+    }
+    /* Active tiles (light on, device running): border and glow in the state colour. */
+    ha-card.active {
+      border-color: color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
+      background-image: linear-gradient(135deg,
+        color-mix(in srgb,
+          var(--tile-color, var(--opal-active-fallback)) var(--opal-active-tint), transparent) 0%,
+        var(--opal-active-tint-end) 60%);
+      box-shadow: var(--opal-active-glow) color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
+    }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
@@ -978,48 +978,18 @@ Opal Aquamarine:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.70)"
       data-table-background-color: "rgba(255, 255, 255, 0.60)"
 
-      # card-mod
-      card-mod-theme: Opal Aquamarine
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(233, 243, 248, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #F59E0B) 45%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #F59E0B) 18%, transparent) 0%,
-            rgba(255, 255, 255, 0.10) 60%);
-          box-shadow: 0 12px 36px color-mix(in srgb, var(--tile-color, #F59E0B) 22%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(233, 243, 248, 0.86)"
+      opal-header-border: "rgba(15, 23, 42, 0.06)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.95)"
+      opal-card-hover-shadow: "0 14px 40px rgba(15, 23, 42, 0.12)"
+      opal-active-fallback: "#F59E0B"
+      opal-active-border: "45%"
+      opal-active-tint: "18%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.10)"
+      opal-active-glow: "0 12px 36px"
+      opal-active-glow-mix: "22%"
 
     # ----------------------------------------------------------------------------------
     dark:
@@ -1108,52 +1078,67 @@ Opal Aquamarine:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.06)"
       data-table-background-color: "rgba(255, 255, 255, 0.04)"
 
-      # card-mod
-      card-mod-theme: Opal Aquamarine
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(0, 17, 24, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.16);
-          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.30);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #FBBF24) 38%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #FBBF24) 16%, transparent) 0%,
-            rgba(255, 255, 255, 0.02) 60%);
-          box-shadow: 0 12px 40px color-mix(in srgb, var(--tile-color, #FBBF24) 20%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(0, 17, 24, 0.86)"
+      opal-header-border: "rgba(255, 255, 255, 0.07)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.16)"
+      opal-card-hover-shadow: "0 14px 40px rgba(0, 0, 0, 0.30)"
+      opal-active-fallback: "#FBBF24"
+      opal-active-border: "38%"
+      opal-active-tint: "16%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.02)"
+      opal-active-glow: "0 12px 40px"
+      opal-active-glow-mix: "20%"
 
 Opal Tourmaline:
   # Shared by both modes
   card-mod-theme: Opal Tourmaline
+  # card-mod reads its styles only from the theme's top level, not from modes; the values
+  # that differ between light and dark are the opal-* variables in each mode.
+  card-mod-sidebar: |
+    /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+    :host {
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+    }
+  card-mod-root: |
+    .header {
+      --app-header-background-color: transparent;
+      background: var(--opal-header-glass) !important;
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      border-bottom: 1px solid var(--opal-header-border);
+      --wa-focus-ring-color: transparent;
+    }
+    .header .toolbar {
+      background: transparent !important;
+    }
+    /* No focus frame left around a tapped view tab; the underline marks the active one. */
+    .header ha-tab-group-tab,
+    .header ha-tab-group-tab::part(base) {
+      outline: none !important;
+    }
+  card-mod-card: |
+    ha-card {
+      background-image: var(--opal-card-sheen);
+      transition: box-shadow 180ms ease, border-color 180ms ease;
+    }
+    ha-card:hover {
+      border-color: var(--opal-card-hover-border);
+      box-shadow: var(--opal-card-hover-shadow);
+    }
+    /* Active tiles (light on, device running): border and glow in the state colour. */
+    ha-card.active {
+      border-color: color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
+      background-image: linear-gradient(135deg,
+        color-mix(in srgb,
+          var(--tile-color, var(--opal-active-fallback)) var(--opal-active-tint), transparent) 0%,
+        var(--opal-active-tint-end) 60%);
+      box-shadow: var(--opal-active-glow) color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
+    }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
@@ -1263,48 +1248,18 @@ Opal Tourmaline:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.70)"
       data-table-background-color: "rgba(255, 255, 255, 0.60)"
 
-      # card-mod
-      card-mod-theme: Opal Tourmaline
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(249, 238, 240, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #F59E0B) 45%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #F59E0B) 18%, transparent) 0%,
-            rgba(255, 255, 255, 0.10) 60%);
-          box-shadow: 0 12px 36px color-mix(in srgb, var(--tile-color, #F59E0B) 22%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(249, 238, 240, 0.86)"
+      opal-header-border: "rgba(15, 23, 42, 0.06)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.95)"
+      opal-card-hover-shadow: "0 14px 40px rgba(15, 23, 42, 0.12)"
+      opal-active-fallback: "#F59E0B"
+      opal-active-border: "45%"
+      opal-active-tint: "18%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.10)"
+      opal-active-glow: "0 12px 36px"
+      opal-active-glow-mix: "22%"
 
     # ----------------------------------------------------------------------------------
     dark:
@@ -1393,52 +1348,67 @@ Opal Tourmaline:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.06)"
       data-table-background-color: "rgba(255, 255, 255, 0.04)"
 
-      # card-mod
-      card-mod-theme: Opal Tourmaline
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(27, 7, 12, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.16);
-          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.30);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #FBBF24) 38%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #FBBF24) 16%, transparent) 0%,
-            rgba(255, 255, 255, 0.02) 60%);
-          box-shadow: 0 12px 40px color-mix(in srgb, var(--tile-color, #FBBF24) 20%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(27, 7, 12, 0.86)"
+      opal-header-border: "rgba(255, 255, 255, 0.07)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.16)"
+      opal-card-hover-shadow: "0 14px 40px rgba(0, 0, 0, 0.30)"
+      opal-active-fallback: "#FBBF24"
+      opal-active-border: "38%"
+      opal-active-tint: "16%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.02)"
+      opal-active-glow: "0 12px 40px"
+      opal-active-glow-mix: "20%"
 
 Opal Onyx:
   # Shared by both modes
   card-mod-theme: Opal Onyx
+  # card-mod reads its styles only from the theme's top level, not from modes; the values
+  # that differ between light and dark are the opal-* variables in each mode.
+  card-mod-sidebar: |
+    /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
+    :host {
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+    }
+  card-mod-root: |
+    .header {
+      --app-header-background-color: transparent;
+      background: var(--opal-header-glass) !important;
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      border-bottom: 1px solid var(--opal-header-border);
+      --wa-focus-ring-color: transparent;
+    }
+    .header .toolbar {
+      background: transparent !important;
+    }
+    /* No focus frame left around a tapped view tab; the underline marks the active one. */
+    .header ha-tab-group-tab,
+    .header ha-tab-group-tab::part(base) {
+      outline: none !important;
+    }
+  card-mod-card: |
+    ha-card {
+      background-image: var(--opal-card-sheen);
+      transition: box-shadow 180ms ease, border-color 180ms ease;
+    }
+    ha-card:hover {
+      border-color: var(--opal-card-hover-border);
+      box-shadow: var(--opal-card-hover-shadow);
+    }
+    /* Active tiles (light on, device running): border and glow in the state colour. */
+    ha-card.active {
+      border-color: color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-border), transparent);
+      background-image: linear-gradient(135deg,
+        color-mix(in srgb,
+          var(--tile-color, var(--opal-active-fallback)) var(--opal-active-tint), transparent) 0%,
+        var(--opal-active-tint-end) 60%);
+      box-shadow: var(--opal-active-glow) color-mix(in srgb,
+        var(--tile-color, var(--opal-active-fallback)) var(--opal-active-glow-mix), transparent);
+    }
   ha-font-family-body: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
   ha-font-family-heading: "'Space Grotesk', Inter, system-ui, -apple-system, sans-serif"
   ha-card-border-width: "1px"
@@ -1548,48 +1518,18 @@ Opal Onyx:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.70)"
       data-table-background-color: "rgba(255, 255, 255, 0.60)"
 
-      # card-mod
-      card-mod-theme: Opal Onyx
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(240, 241, 244, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #F59E0B) 45%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #F59E0B) 18%, transparent) 0%,
-            rgba(255, 255, 255, 0.10) 60%);
-          box-shadow: 0 12px 36px color-mix(in srgb, var(--tile-color, #F59E0B) 22%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(240, 241, 244, 0.86)"
+      opal-header-border: "rgba(15, 23, 42, 0.06)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.10) 60%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.95)"
+      opal-card-hover-shadow: "0 14px 40px rgba(15, 23, 42, 0.12)"
+      opal-active-fallback: "#F59E0B"
+      opal-active-border: "45%"
+      opal-active-tint: "18%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.10)"
+      opal-active-glow: "0 12px 36px"
+      opal-active-glow-mix: "22%"
 
     # ----------------------------------------------------------------------------------
     dark:
@@ -1678,45 +1618,15 @@ Opal Onyx:
       table-row-alternative-background-color: "rgba(255, 255, 255, 0.06)"
       data-table-background-color: "rgba(255, 255, 255, 0.04)"
 
-      # card-mod
-      card-mod-theme: Opal Onyx
-      card-mod-sidebar: |
-        /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
-        :host {
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-        }
-      card-mod-root: |
-        .header {
-          --app-header-background-color: transparent;
-          background: rgba(12, 15, 19, 0.86) !important;
-          backdrop-filter: blur(24px) saturate(170%);
-          -webkit-backdrop-filter: blur(24px) saturate(170%);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-          --wa-focus-ring-color: transparent;
-        }
-        .header .toolbar {
-          background: transparent !important;
-        }
-        /* No focus frame left around a tapped view tab; the underline marks the active one. */
-        .header ha-tab-group-tab,
-        .header ha-tab-group-tab::part(base) {
-          outline: none !important;
-        }
-      card-mod-card: |
-        ha-card {
-          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%);
-          transition: box-shadow 180ms ease, border-color 180ms ease;
-        }
-        ha-card:hover {
-          border-color: rgba(255, 255, 255, 0.16);
-          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.30);
-        }
-        /* Active tiles (light on, device running): border and glow in the state colour. */
-        ha-card.active {
-          border-color: color-mix(in srgb, var(--tile-color, #FBBF24) 38%, transparent);
-          background-image: linear-gradient(135deg,
-            color-mix(in srgb, var(--tile-color, #FBBF24) 16%, transparent) 0%,
-            rgba(255, 255, 255, 0.02) 60%);
-          box-shadow: 0 12px 40px color-mix(in srgb, var(--tile-color, #FBBF24) 20%, transparent);
-        }
+      # Values for the card-mod styles at the top of the theme (card-mod reads only top-level keys)
+      opal-header-glass: "rgba(12, 15, 19, 0.86)"
+      opal-header-border: "rgba(255, 255, 255, 0.07)"
+      opal-card-sheen: "linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 55%)"
+      opal-card-hover-border: "rgba(255, 255, 255, 0.16)"
+      opal-card-hover-shadow: "0 14px 40px rgba(0, 0, 0, 0.30)"
+      opal-active-fallback: "#FBBF24"
+      opal-active-border: "38%"
+      opal-active-tint: "16%"
+      opal-active-tint-end: "rgba(255, 255, 255, 0.02)"
+      opal-active-glow: "0 12px 40px"
+      opal-active-glow-mix: "20%"
