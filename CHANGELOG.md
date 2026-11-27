@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.1.4 (2026-11-27)
 
 - Only lights glow: a tile glows in its light's colour while the light is on; other tiles,
   such as a heating thermostat or a media player, stay plain glass.
