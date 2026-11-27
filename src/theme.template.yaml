@@ -11,15 +11,15 @@ ${name}:
   card-mod-sidebar: |
     /* Frosted glass; matters most where the sidebar opens over the dashboard (phones). */
     :host {
-      backdrop-filter: blur(24px) saturate(170%);
-      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      backdrop-filter: blur(24px) saturate(170%) !important;
+      -webkit-backdrop-filter: blur(24px) saturate(170%) !important;
     }
   card-mod-root: |
     .header {
       --app-header-background-color: transparent;
       background: var(--opal-header-glass) !important;
-      backdrop-filter: blur(24px) saturate(170%);
-      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      backdrop-filter: blur(24px) saturate(170%) !important;
+      -webkit-backdrop-filter: blur(24px) saturate(170%) !important;
       border-bottom: 1px solid var(--opal-header-border);
       --wa-focus-ring-color: transparent;
     }
