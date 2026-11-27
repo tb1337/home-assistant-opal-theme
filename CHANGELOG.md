@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.1.3 (2026-11-27)
 
 - Opal needs only one font now, Inter: headings use it too, and the README's font guide is
   shorter. Space Grotesk can be removed.
