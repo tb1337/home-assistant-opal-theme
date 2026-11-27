@@ -90,6 +90,7 @@ Opal is free and stays free. If it brightens your dashboard, a coffee keeps the 
 - Home Assistant 2026.11 or newer.
 - Optional, recommended: [card-mod](https://github.com/thomasloven/lovelace-card-mod).
   Opal works without it; a few effects need it.
+- Optional: the fonts Inter and Space Grotesk, see [Fonts](#-fonts-optional).
 
 ## 🧩 With and without card-mod
 
@@ -155,6 +156,44 @@ frontend:
     - /local/community/lovelace-card-mod/card-mod.js
 ```
 
+## 🔤 Fonts (optional)
+
+Opal asks for **Inter** (text) and **Space Grotesk** (headings and big numbers). A theme cannot
+load fonts, so without them Home Assistant uses your system font, which works just as well.
+To get the intended look, serve the two fonts from Home Assistant once. Both are under the SIL
+Open Font License and may be self-hosted.
+
+1. Download the two variable fonts (every weight in one file each):
+   [Space Grotesk](https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2)
+   and [Inter](https://cdn.jsdelivr.net/npm/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2).
+2. Put both into `config/www/fonts/` and add `config/www/fonts/opal-fonts.css`:
+
+   ```css
+   @font-face {
+     font-family: 'Space Grotesk';
+     src: url('/local/fonts/space-grotesk-latin-wght-normal.woff2') format('woff2');
+     font-weight: 300 700;
+     font-display: swap;
+   }
+   @font-face {
+     font-family: 'Inter';
+     src: url('/local/fonts/inter-latin-wght-normal.woff2') format('woff2');
+     font-weight: 100 900;
+     font-display: swap;
+   }
+   ```
+
+3. **Settings → Dashboards → ⋮ → Resources → Add resource**: URL `/local/fonts/opal-fonts.css`,
+   type **Stylesheet** (the menu needs *Advanced mode* in your profile).
+4. Reload the browser or clear the app's frontend cache.
+
+> [!NOTE]
+> Like card-mod, a dashboard resource loads with the first dashboard, so pages such as the
+> settings switch to the fonts once a dashboard has been opened.
+
+Prefer not to host them? Add `https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@100..900&display=swap`
+as the stylesheet resource instead; every device then fetches the fonts from Google.
+
 ## 🎨 Customising
 
 `themes/opal.yaml` is generated: the shared part is `src/theme.template.yaml`, each theme's
@@ -178,7 +217,8 @@ every theme (needs Playwright with Chromium and Pillow).
 ## ⚠️ Known limitations
 
 - **Fonts**: a theme cannot load web fonts. Opal asks for Inter and Space Grotesk and falls back
-  to the system font (San Francisco on Apple devices) when they are not installed.
+  to the system font (San Francisco on Apple devices) until you add them, see
+  [Fonts](#-fonts-optional).
 - **Blur in the iOS app**: the glass header and the sidebar are blurred in browsers; in the
   Home Assistant iOS app that blur may not apply, so both are kept opaque enough to stay
   readable.
