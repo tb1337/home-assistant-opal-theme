@@ -4,6 +4,8 @@
 
 - Glass effects with card-mod: a frosted header and sidebar, a soft sheen on every card, a
   lift on hover, and lit tiles that glow in the colour of their light.
+- New screenshots, taken in Home Assistant itself, and a refreshed README with a guide to
+  the fonts.
 
 ## 1.1.1 (2026-11-25)
 

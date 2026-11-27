@@ -31,8 +31,7 @@ itself there are five gemstone variants.
 | <img src="docs/screenshots/opal-desktop-light.webp" alt="Opal in light mode on a desktop" width="420"> | <img src="docs/screenshots/opal-desktop-dark.webp" alt="Opal in dark mode on a desktop" width="420"> |
 | <img src="docs/screenshots/opal-mobile-light.webp" alt="Opal in light mode on a phone" width="200"> | <img src="docs/screenshots/opal-mobile-dark.webp" alt="Opal in dark mode on a phone" width="200"> |
 
-<sub>Rendered previews of a demo dashboard in the theme's colours, as with card-mod
-(`script/screenshots.py`); not captures of Home Assistant, and your own cards will differ.</sub>
+<sub>Screenshots of a demo dashboard in Home Assistant, with card-mod and the fonts installed.</sub>
 
 ## ✨ Features
 
@@ -106,10 +105,11 @@ Opal is free and stays free. If it brightens your dashboard, a coffee keeps the 
 | Readable form fields and menus | ✓ | ✓ |
 | Dashboard header | nearly opaque | frosted glass |
 | Light sheen on cards | – | ✓ |
+| Cards light up when you hover over them | – | ✓ |
 | Active tiles (light on, device running) glow in their state colour, a colour light in its own colour | – | ✓ |
 | Sidebar blurs what is behind it (when it opens over the dashboard on a phone) | – | ✓ |
 
-Without card-mod nothing breaks: the effects in the last four rows are simply left out.
+Without card-mod nothing breaks: the effects in the last five rows are simply left out.
 
 ## 📦 Installation
 
@@ -158,10 +158,10 @@ frontend:
 
 ## 🔤 Fonts (optional)
 
-Opal asks for **Inter** (text) and **Space Grotesk** (headings and big numbers). A theme cannot
-load fonts, so without them Home Assistant uses your system font, which works just as well.
-To get the intended look, serve the two fonts from Home Assistant once. Both are under the SIL
-Open Font License and may be self-hosted.
+Opal asks for **Inter** (text) and **Space Grotesk** (where Home Assistant uses its heading
+font). A theme cannot load fonts, so without them Home Assistant uses your system font, which
+works just as well. To get the intended look, serve the two fonts from Home Assistant once.
+Both are under the SIL Open Font License and may be self-hosted.
 
 1. Download the two variable fonts (every weight in one file each):
    [Space Grotesk](https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2)
@@ -199,8 +199,9 @@ as the stylesheet resource instead; every device then fetches the fonts from Goo
 `themes/opal.yaml` is generated: the shared part is `src/theme.template.yaml`, each theme's
 colours are in `src/variants.yaml`. For your own copy you can edit `themes/opal.yaml` directly;
 for a change to this repository edit `src/` and run `script/build.py` (needs PyYAML).
-`script/screenshots.py` renders the README's screenshots from `docs/demo/dashboard.html` in
-every theme (needs Playwright with Chromium and Pillow).
+`script/screenshots.py` takes the README's screenshots of a dashboard in a running Home
+Assistant, in every theme and mode, on a desktop and a phone (needs Playwright with Chromium,
+Pillow and PyYAML, and Opal with card-mod installed there).
 
 - **Accent colour**: change `primary-color`, `accent-color` and their `rgb-*` values in the
   mode you want (light and dark have their own, the light one is darker for contrast), and
